@@ -1,76 +1,150 @@
 -- ============================================================
---   Nom de la base   :  CINEMA                                
---   Nom de SGBD      :  ORACLE Version 7.0                    
---   Date de creation :  30/10/96  12:09                       
+--   Nom de la base   :  Parking_campus
+--   Nom du fichier   :  base.sql
+--   Nom de SGBD      :  ORACLE Version 7.0
+--   Date de creation :  19/11/2022  01:43
 -- ============================================================
 
-drop table ROLE cascade constraints;
-
-drop table FILM cascade constraints;
-
-drop table REALISATEUR cascade constraints;
-
-drop table ACTEUR cascade constraints;
+--Format des dates de la session
+ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-DD-MM HH24:MI';
 
 -- ============================================================
---   Table : ACTEUR                                            
 -- ============================================================
-create table ACTEUR
+--                           DROP
+-- ============================================================
+-- ============================================================
+
+
+drop table COMMUNES cascade constraints;
+drop table PARKINGS cascade constraints;
+drop table PLACES cascade constraints;
+drop table STATIONNEMENTS cascade constraints;
+drop table VEHICULES cascade constraints;
+
+drop sequence NUMERO_PARKING_seq;
+drop sequence NUMERO_PLACE_seq;
+drop sequence ID_STATIONNEMENT_seq;
+
+-- ============================================================
+-- ============================================================
+--                   CREATE TABLE/CREATE SEQUENCE
+-- ============================================================
+-- ============================================================
+
+-- ============================================================
+--   Table : COMMUNES
+-- ============================================================
+
+create table COMMUNES
 (
-    NUMERO_ACTEUR                   NUMBER(3)              not null,
-    NOM_ACTEUR                      CHAR(20)               not null,
-    PRENOM_ACTEUR                   CHAR(20)                       ,
-    NATION_ACTEUR                   CHAR(20)                       ,
-    DATE_DE_NAISSANCE               DATE                           ,
-    constraint pk_acteur primary key (NUMERO_ACTEUR)
+CODE_POSTAL	NUMBER(5)	not null,
+NOM_COMMUNE	CHAR(20)	not null,
+constraint pk_commune primary key (CODE_POSTAL)
 );
 
 -- ============================================================
---   Table : REALISATEUR                                       
+--   Table : PARKINGS
 -- ============================================================
-create table REALISATEUR
+
+create sequence NUMERO_PARKING_seq
+       minvalue 1
+       maxvalue 999
+       start with 1
+       increment by 1
+       cache 10;
+
+create table PARKINGS
 (
-    NUMERO_REALISATEUR              NUMBER(3)              not null,
-    NOM_REALISATEUR                 CHAR(20)               not null,
-    PRENOM_REALISATEUR              CHAR(20)                       ,
-    NATION_REALISATEUR              CHAR(20)                       ,
-    constraint pk_realisateur primary key (NUMERO_REALISATEUR)
+NUMERO_PARKING	NUMBER(3)	not null,
+NOM_PARKING 	CHAR(30)	not null,
+ADRESSE		CHAR(40)	not null,
+TARIF_HORAIRE 	NUMBER(4)	not null,
+CAPACITE 	NUMBER(5)	not null,
+CODE_POSTAL	NUMBER(5)	not null,
+constraint pk_parking primary key (NUMERO_PARKING,CODE_POSTAL),
+check(CAPACITE >= 1),
+check(TARIF_HORAIRE >= 1),
+);
+
+
+-- ============================================================
+--   Table : PLACES
+-- ============================================================
+
+create sequence NUMERO_PLACE_seq
+       minvalue 1
+       maxvalue 999
+       start with 1
+       increment by 1
+       cache 10;
+
+create table PLACES
+(
+NUMERO_PLACE	NUMBER(5)	not null,
+NOM_PLACE	NUMBER(10)	not null,
+--chaque numero correspond a une signification particuliere de la place
+--d'ou un nom attribue(on procede de cette maniere).
+NUMERO_PARKING	NUMBER(3) 	not null,	  
+constraint pk_place primary key (NUMERO_PLACE,NUMERO_PARKING)
 );
 
 -- ============================================================
---   Table : FILM                                              
+--   Table : STATIONNEMENTS
 -- ============================================================
-create table FILM
+
+create sequence ID_STATIONNEMENT_seq
+       minvalue 1
+       maxvalue 999
+       start with 1
+       increment by 1
+       cache 10;
+
+
+create table STATIONNEMENTS
 (
-    NUMERO_FILM                     NUMBER(3)              not null,
-    TITRE_FILM                      CHAR(30)               not null,
-    DATE_DE_SORTIE                  DATE                           ,
-    DUREE                           NUMBER(3)              not null,
-    GENRE                           CHAR(20)               not null,
-    NUMERO_REALISATEUR              NUMBER(3)              not null,
-    constraint pk_film primary key (NUMERO_FILM)
+ID_STATIONNEMENT	NUMBER(4)	not null,
+DATE_STATIONNEMENT 	DATE		not null,
+HORAIRE_SORTIE		DATE		not null,
+NUMERO_PLACE		NUMBER(5)	not null,
+NUMERO_IMMATRICULATION	CHAR(11)	not null,
+constraint pk_stationnement primary key (ID_STATIONNEMENT,NUMERO_PLACE,NUMERO_IMMATRICULATION)
 );
 
 -- ============================================================
---   Table : ROLE                                              
+--   Table : VEHICULES
 -- ============================================================
-create table ROLE
+
+create table VEHICULES
 (
-    NUMERO_ACTEUR                   NUMBER(3)              not null,
-    NUMERO_FILM                     NUMBER(3)              not null,
-    NOM_DU_ROLE                     CHAR(30)                       ,
-    constraint pk_role primary key (NUMERO_ACTEUR, NUMERO_FILM)
+NUMERO_IMMATRICULATION	CHAR(11)	not null,
+MARQUE 			CHAR(17)	not null,
+DATE_DE_MISE_EN_CIRCULATION		DATE	not null,
+KILOMETRAGE 				NUMBER(7)   not null,
+ETAT					CHAR(8)	    not null,
+constraint pk_vehicule primary key (NUMERO_IMMATRICULATION),
+check(KILOMETRAGE >= 1),
 );
 
-alter table FILM
-    add constraint fk1_film foreign key (NUMERO_REALISATEUR)
-       references REALISATEUR (NUMERO_REALISATEUR);
+-- ============================================================
+-- ============================================================
+--                      ALTER TABLE
+-- ============================================================
+-- ============================================================
 
-alter table ROLE
-    add constraint fk1_role foreign key (NUMERO_ACTEUR)
-       references ACTEUR (NUMERO_ACTEUR);
 
-alter table ROLE
-    add constraint fk2_role foreign key (NUMERO_FILM)
-       references FILM (NUMERO_FILM);
+alter table PARKINGS
+      add constraint fk1_parking foreign key (CODE_POSTAL)
+      	  references COMMUNES (CODE_POSTAL);
+
+alter table PLACES
+      add constraint fk1_place foreign key (NUMERO_PARKING)
+      	  references PARKINGS (NUMERO_PARKING);
+
+alter table STATIONNEMENTS
+      add constraint fk1_stationnement foreign key (NUMERO_PLACE)
+      	  references PLACES (NUMERO_PLACE);
+	  
+alter table STATIONNEMENTS
+      add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
+      	  references VEHICULES (NUMERO_IMMATRICULATION);
 
