@@ -39,7 +39,7 @@ create table COMMUNES
 (
 CODE_POSTAL	NUMBER(5)	not null,
 NOM_COMMUNE	CHAR(20)	not null,
-constraint pk_COMMUNES primary key (CODE_POSTAL)
+constraint pk_commune primary key (CODE_POSTAL)
 );
 
 -- ============================================================
@@ -61,7 +61,7 @@ ADRESSE		CHAR(40)	not null,
 TARIF_HORAIRE 	NUMBER(4)	not null,
 CAPACITE 	NUMBER(5)	not null,
 CODE_POSTAL	NUMBER(5)	not null,
-constraint pk_PARKINGS primary key (NUMERO_PARKING,CODE_POSTAL),
+constraint pk_parking primary key (NUMERO_PARKING,CODE_POSTAL),
 check(CAPACITE >= 1),
 check(TARIF_HORAIRE >= 1),
 );
@@ -85,7 +85,7 @@ NOM_PLACE	NUMBER(10)	not null,
 --chaque numero correspond a une signification particuliere de la place
 --d'ou un nom attribue(on procede de cette maniere).
 NUMERO_PARKING	NUMBER(3) 	not null,	  
-constraint pk_PLACES primary key (NUMERO_PLACE,NUMERO_PARKING)
+constraint pk_place primary key (NUMERO_PLACE,NUMERO_PARKING)
 );
 
 -- ============================================================
@@ -107,7 +107,7 @@ DATE_STATIONNEMENT 	DATE		not null,
 HORAIRE_SORTIE		DATE		not null,
 NUMERO_PLACE		NUMBER(5)	not null,
 NUMERO_IMMATRICULATION	CHAR(11)	not null,
-constraint pk_STATIONNEMENTS primary key (ID_STATIONNEMENT,NUMERO_PLACE,NUMERO_IMMATRICULATION)
+constraint pk_stationnement primary key (ID_STATIONNEMENT,NUMERO_PLACE,NUMERO_IMMATRICULATION)
 );
 
 -- ============================================================
@@ -121,7 +121,7 @@ MARQUE 			CHAR(17)	not null,
 DATE_DE_MISE_EN_CIRCULATION		DATE	not null,
 KILOMETRAGE 				NUMBER(7)   not null,
 ETAT					CHAR(8)	    not null,
-constraint pk_VEHICULES primary key (NUMERO_IMMATRICULATION),
+constraint pk_vehicule primary key (NUMERO_IMMATRICULATION),
 check(KILOMETRAGE >= 1),
 );
 
