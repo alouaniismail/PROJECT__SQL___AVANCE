@@ -60,6 +60,7 @@ NOM_PARKING 	CHAR(30)	not null,
 ADRESSE		CHAR(40)	not null,
 TARIF_HORAIRE 	NUMBER(4)	not null,
 CAPACITE 	NUMBER(5)	not null,
+CODE_POSTAL	NUMBER(5)	not null,
 constraint pk_PARKINGS primary key (NUMERO_PARKING),
 check(CAPACITE >= 1),
 check(TARIF_HORAIRE >= 1),
@@ -83,6 +84,7 @@ NUMERO_PLACE	NUMBER(5)	not null,
 NOM_PLACE	NUMBER(10)	not null,
 --chaque numero correspond a une signification particuliere de la place
 --d'ou un nom attribue(on procede de cette maniere).
+NUMERO_PARKING	NUMBER(3) 	not null,	  
 constraint pk_PLACES primary key (NUMERO_PLACE)
 );
 
@@ -103,6 +105,8 @@ create table STATIONNEMENTS
 ID_STATIONNEMENT	NUMBER(4)	not null,
 DATE_STATIONNEMENT 	DATE		not null,
 HORAIRE_SORTIE		DATE		not null,
+NUMERO_PLACE		NUMBER(5)	not null,
+NUMERO_IMMATRICULATION	CHAR(11)	not null,
 constraint pk_STATIONNEMENTS primary key (ID_STATIONNEMENT)
 );
 
@@ -129,19 +133,19 @@ check(KILOMETRAGE >= 1),
 
 
 alter table PARKINGS
-      add constraint fk1_PARKINGS foreign key (CODE_POSTAL)
+      add constraint fk1_parking foreign key (CODE_POSTAL)
       	  references COMMUNES (CODE_POSTAL);
 
 alter table PLACES
-      add constaint fk1_PLACES foreign key (NUMERO_PARKING)
+      add constaint fk1_place foreign key (NUMERO_PARKING)
       	  references PARKINGS (NUMERO_PARKING);
 
 alter table STATIONNEMENTS
-      add constraint fk1_STATIONNEMENTS foreign key (NUMERO_PLACE)
+      add constraint fk1_stationnement foreign key (NUMERO_PLACE)
       	  references PLACES (NUMERO_PLACE);
 	  
 alter table STATIONNEMENTS
-      add constraint fk2_STATIONNEMENTS foreign key (NUMERO_IMMATRICULATION)
+      add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
       	  references VEHICULES (NUMERO_IMMATRICULATION);
 
 commit;
