@@ -1,0 +1,12 @@
+Communes(code_postal, nom_commune)
+
+Parkings(numero_parking, #code_postal, nom_parking, adresse, tarif_horaire, capacite)
+
+Places(numero_place, #numero_parking, nom_place)
+
+Stationnements(id_stationnement, #numero_place,#numero_immatriculation, date_stationnement, horaire_entree, horaire_sortie)
+
+Vehicules(numero_immatriculation, marque, date_de_mise_en_circulation, kilometrage, etat)
+
+Remarques:
+les clefs etrangeres sont inserees a la fin dans base.sql via donnees.sql.
