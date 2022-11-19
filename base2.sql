@@ -148,4 +148,3 @@ alter table STATIONNEMENTS
       add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
       	  references VEHICULES (NUMERO_IMMATRICULATION);
 
-commit;
