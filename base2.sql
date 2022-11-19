@@ -137,7 +137,7 @@ alter table PARKINGS
       	  references COMMUNES (CODE_POSTAL);
 
 alter table PLACES
-      add constaint fk1_place foreign key (NUMERO_PARKING)
+      add constraint fk1_place foreign key (NUMERO_PARKING)
       	  references PARKINGS (NUMERO_PARKING);
 
 alter table STATIONNEMENTS
