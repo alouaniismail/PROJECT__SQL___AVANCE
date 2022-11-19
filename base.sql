@@ -15,12 +15,6 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-DD-MM HH24:MI';
 -- ============================================================
 
 
-drop table STATIONNEMENTS cascade constraints;
-drop table PLACES cascade constraints;
-drop table PARKINGS cascade constraints;
-drop table COMMUNES cascade constraints;
-drop table VEHICULES cascade constraints;
-
 
 -- ============================================================
 -- ============================================================
