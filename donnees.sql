@@ -43,7 +43,7 @@ insert into COMMUNES VALUES (92130, 'ISSY-LES-MOULINEAUX');
 -- ============================================================
                 --- Table Parkings ---
 -- ============================================================
-insert into PARKINGS VALUES (1, 'Niwa', '16  RUE RENE COCHE', 0, 46, 92170);
+insert into PARKINGS VALUES (1, 'Niwa', '16  RUE RENE COCHE', 0, 8, 92170);
 insert into PARKINGS VALUES (2, 'Atrium', '965  AVENUE ROGER SALENGRO', 0, 11, 92370);
 insert into PARKINGS VALUES (3, 'Parking Fausses-Reposes', 'ROUTE DE VERSAILLES', 0, 17, 92410);
 insert into PARKINGS VALUES (4, 'Gabriel Péri', 'PLACE GABRIEL PERI', 0, 13, 92310);

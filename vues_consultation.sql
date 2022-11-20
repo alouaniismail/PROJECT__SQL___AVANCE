@@ -35,17 +35,22 @@ STATIONNEMENTS natural join VEHICULES
 natural join POSITIONS
 natural join PARKINGS
 
+create or replace view liste_parkings__commune as
 select NUMERO_PARKING, NOM_PARKING, NOM_COMMUNE
 from
 COMMUNES natural join PARKINGS
 
 --Liste des parkings qui sont saturés à un jour donnée.
 create or replace view parkings_satures as
-select NUMERO_PARKING, NOM_PARKING, count(NUMERO_PLACE)
-from
-POSITIONS natural join PARKINGS 
+select NOM_PARKING, NUMERO_PARKING, CAPACITE
+from PARKINGS
+intersect
+select NOM_PARKING, NUMERO_PARKING, NBR
+from(
+select NUMERO_PARKING, NOM_PARKING, count(NUMERO_PLACE) as NBR
+from POSITIONS natural join PARKINGS 
 group by NUMERO_PARKING, NOM_PARKING
-having count(NUMERO_PLACE) = CAPACITE;
+);
 
 --Liste des places disponibles, par parking, à un moment donné.
 create or replace view places_dispos__parking as
@@ -63,6 +68,6 @@ from
 STATIONNEMENTS natural join VEHICULES
 natural join POSITIONS
 natural join PARKINGS
-where CAST((HORAIRE_SORTIE-DATE_STATIONNEMENT) AS SIGNED INTEGER) > 1
+where CAST((HORAIRE_SORTIE-DATE_STATIONNEMENT) AS SIGNED INTEGER) = 1
 group by NUMERO_IMMATRICULATION
 having count(NUMERO_PARKING) > 1 ;
