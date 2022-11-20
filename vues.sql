@@ -16,7 +16,7 @@
 -- ============================================================
 
 --ceux qui participent pas à des emplacements de vehicule.(parkings concernes nn)
-create view vue_places_stats as
+create or replace view vue_places_stats_2 as
 select NUMERO_PLACE, NOM_PLACE
 from PARKINGS natural join POSITIONS
 minus

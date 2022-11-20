@@ -20,10 +20,10 @@
 create or replace procedure procedure_places_stats
        IS
 	BEGIN
-	FOR compteur in (select * from vue_places_stats)
+	FOR compteur in (select * from vue_places_stats_2)
 	LOOP
 		IF compteur.NUMERO_PLACE is not null then
-		   dbms_output.put_line('Cette place ne concerne aucun stationnement jusquà maintenant : ||', compteur.NOM_POSITION);
+		   dbms_output.put_line('Cette place(position !) ne concerne aucun stationnement jusquà maintenant : ||', compteur.NUMERO_POSITION);
 		END IF;
 	END LOOP;
 	END;
