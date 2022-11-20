@@ -18,11 +18,11 @@
 --Un numero de place qui participe pas à un stationnement
 
 create or replace procedure procedure_places_stats
-       is
-	begin
-	for compteur in (select * from vue_places_stats)
-	loop
-		if compteur.id_stationnement is not null then
+       IS
+	BEGIN
+	FOR compteur in (select * from vue_places_stats)
+	LOOP
+		IF compteur.id_stationnement is not null then
 		   dbms_output.put_line('Cette place ne concerne aucun stationnement jusquà maintenant : ||', compteur.NOM_POSITION);
 		end if;
 	end loop;
