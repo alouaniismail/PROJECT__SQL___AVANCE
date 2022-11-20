@@ -97,7 +97,7 @@ alter table PARKINGS
 
 alter table STATIONNEMENTS
       add constraint fk1_stationnement foreign key (NUMERO_PLACE)
-      	  references PLACES (NUMERO_PLACE);
+      	  references POSITIONS (NUMERO_PLACE);
 	  
 alter table STATIONNEMENTS
       add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
