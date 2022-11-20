@@ -576,8 +576,9 @@ insert into POSITIONS VALUES (484, 'P07', 'taxis', 52);
 
 -- ============================================================
                 --- Table Vehicules ---
+		--to_date('28-12-2017 21:00','DD-MM-YYYY HH24:MI')--
 -- ============================================================
-insert into VEHICULES VALUES ('OC20DM', 'Hyundai', '2019-07-17 10:28:07', 'taxis', 75970, 'Occasion');
+insert into VEHICULES VALUES ('OC20DM', 'Hyundai', to_date('2019-07-17 10:28''YYYY-MM-DD HH24:MI'), 'taxis', 75970, 'Occasion');
 insert into VEHICULES VALUES ('HJ01TZ', 'Mitsubishi', '2006-04-27 17:08:56', 'deux-roues', 71085, 'Neuf');
 insert into VEHICULES VALUES ('EJ00RG', 'Kia', '2006-02-14 02:15:38', 'livraison', 14749, 'Neuf');
 insert into VEHICULES VALUES ('FY67LW', 'Fiat', '2002-12-19 06:30:51', 'mobilite reduite', 79845, 'Neuf');
