@@ -77,10 +77,6 @@ alter table PARKINGS
       add constraint fk1_parking foreign key (CODE_POSTAL)
       	  references COMMUNES (CODE_POSTAL);
 
-alter table PLACES
-      add constraint fk1_place foreign key (NUMERO_PARKING)
-      	  references PARKINGS (NUMERO_PARKING);
-
 alter table STATIONNEMENTS
       add constraint fk1_stationnement foreign key (NUMERO_PLACE)
       	  references PLACES (NUMERO_PLACE);
@@ -88,3 +84,8 @@ alter table STATIONNEMENTS
 alter table STATIONNEMENTS
       add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
       	  references VEHICULES (NUMERO_IMMATRICULATION);
+
+
+alter table PLACES
+      add constraint fk1_place foreign key (NUMERO_PARKING)
+      	  references PARKINGS (NUMERO_PARKING);
