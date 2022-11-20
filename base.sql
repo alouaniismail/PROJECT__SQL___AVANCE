@@ -4,7 +4,7 @@
 --   Date de creation :  20/11/2022 02:54                       
 -- ============================================================
 
-ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI';
+ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS';
 
 -- ============================================================
 -- ============================================================
@@ -52,7 +52,7 @@ create table VEHICULES
 (
 	NUMERO_IMMATRICULATION	CHAR(11)	not null,
 	MARQUE 			CHAR(17)	not null,
-	DATE_DE_MISE_EN_CIRCULATION		TIMESTAMP	not null,
+	DATE_DE_MISE_EN_CIRCULATION		DATE	not null,
 	TYPE_VEHICULE				CHAR(25)    ,
 	KILOMETRAGE 				NUMBER(7)   not null,
 	ETAT					CHAR(8)	    ,
@@ -110,8 +110,8 @@ create table POSITIONS
 create table STATIONNEMENTS
 (
 	ID_STATIONNEMENT	NUMBER(4)	not null,
-	DATE_STATIONNEMENT 	TIMESTAMP		not null,
-	HORAIRE_SORTIE		TIMESTAMP		not null,
+	DATE_STATIONNEMENT 	DATE		not null,
+	HORAIRE_SORTIE		DATE		not null,
 	NUMERO_PLACE		NUMBER(5)	not null,
 	NUMERO_IMMATRICULATION	CHAR(11)	not null,
 	constraint pk_stationnement primary key (ID_STATIONNEMENT)
