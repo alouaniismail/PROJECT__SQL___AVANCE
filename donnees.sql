@@ -647,7 +647,7 @@ insert into VEHICULES VALUES ('OB48FL', 'Subaru', '2019-11-18 04:37:19', 'livrai
                 --- Table Stationnements ---
 -- ============================================================
 insert  into STATIONNEMENTS VALUES (6, '2022-05-18 11:33:16', '2022-12-24 04:30:09', 371, 'GQ31UO');
-insert  into STATIONNEMENTS VALUES (7, '2022-09-17 19:10:33', '2022-12-17 00:04:20', 173, 'QX16IM');;
+insert  into STATIONNEMENTS VALUES (7, '2022-09-17 19:10:33', '2022-12-17 00:04:20', 173, 'QX16IM');
 insert  into STATIONNEMENTS VALUES (9, '2022-09-08 14:00:20', '2022-11-28 02:14:01', 240, 'GQ31UO');
 insert  into STATIONNEMENTS VALUES (10, '2022-03-26 07:50:06', '2022-11-11 06:58:53', 103, 'YI99PA');
 insert  into STATIONNEMENTS VALUES (13, '2022-03-06 18:25:01', '2022-12-30 02:40:28', 15, 'UK49AS');
