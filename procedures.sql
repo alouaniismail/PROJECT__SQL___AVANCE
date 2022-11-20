@@ -17,15 +17,16 @@
 --1ere procedure:
 --Un numero de place qui participe pas à un stationnement
 
-create or replace procedure procedure_places_stats
-       IS
-	BEGIN
-	FOR compteur in (select * from vue_places_stats_2)
-	LOOP
-		IF compteur.NUMERO_PLACE is not null then
-		   dbms_output.put_line('Cette place(position !) ne concerne aucun stationnement jusquà maintenant : ||', compteur.NUMERO_POSITION);
-		END IF;
-	END LOOP;
-	END;
-/
-		   
+CREATE or REPLACE PROCEDURE procedure_places_stat
+  IS
+  BEGIN
+  FOR compteur IN (SELECT * FROM vue_places_stats)
+  LOOP
+    IF compteur.NUMERO_PLACE is not NULL THEN
+      dbms_output.put_line('Cette place(position !) na jamais ete occupee par une voiture : ' || compteur.NUMERO_PLACE);
+      --RAISE_APPLICATION_ERROR (-20001,'Il manque la participation d une position');
+    END IF;
+  END LOOP;
+
+  END ;
+/		   
