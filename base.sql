@@ -6,6 +6,12 @@
 
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY HH24:MI';
 
+-- ============================================================
+-- ============================================================
+--                           DROP
+-- ============================================================
+-- ============================================================
+
 drop table STATIONNEMENTS cascade constraints;
 
 drop table POSITIONS cascade constraints;
@@ -16,6 +22,11 @@ drop table VEHICULES cascade constraints;
 
 drop table COMMUNES cascade constraints;
 
+-- ============================================================
+-- ============================================================
+--                   CREATE TABLE/CREATE SEQUENCE
+-- ============================================================
+-- ============================================================
 
 -- ============================================================
 --   Table : COMMUNES
@@ -88,7 +99,11 @@ create table STATIONNEMENTS
 	constraint pk_stationnement primary key (ID_STATIONNEMENT)
 );
 
-
+-- ============================================================
+-- ============================================================
+--                      ALTER TABLE
+-- ============================================================
+-- ============================================================
 
 
 alter table POSITIONS
@@ -107,4 +122,4 @@ alter table STATIONNEMENTS
       add constraint fk2_stationnement foreign key (NUMERO_IMMATRICULATION)
       	  references VEHICULES (NUMERO_IMMATRICULATION);
 
-
+commit;
