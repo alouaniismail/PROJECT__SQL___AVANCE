@@ -15,6 +15,7 @@
 --division par le nombre de parking
 --donnera le nombre de places dispos / parking.
 
+create or replace view moyenne_nbr_places_parking as
 select NUMERO_PARKING, NOM_PARKING, sum(NBR)/count(*) as moyenne_places_dispos
 from(
 select NUMERO_PARKING, NOM_PARKING, count(NUMERO_PLACE) as NBR
@@ -35,6 +36,7 @@ group by NUMERO_PARKING, NOM_PARKING;
 --/ nombre de vehicules stationnant là-bas; cela donnerait
 --la durée moyenne de stationnement d'un véhicule par parking.
 
+create or replace view duree_moy_stat_vehicule__p as
 select NUMERO_PARKING, sum(HORAIRE_SORTIE-DATE_STATIONNEMENT)/count(NUMERO_IMMATRICULATION)
 from STATIONNEMENTS natural join POSITIONS
 natural join PARKINGS
@@ -52,6 +54,7 @@ group by NUMERO_PARKING;
 --puis le diviser par le premier
 --ceci donnerait un tarif moyen d'un stationnement de vehicule par mois.
 
+create or replace view cout_moyen_stat_v__mois as
 select NUMERO_IMMATRICULATION, ((sum(TARIF_HORAIRE)/count(NUMERO_PLACE))*30)/sum(HORAIRE_SORTIE-DATE_STATIONNEMENT) as tarif_mensuel__horaire___moyen
 from VEHICULES natural join STATIONNEMENTS
 natural join POSITIONS
@@ -69,6 +72,7 @@ group by NUMERO_IMMATRICULATION;
 
 --classement des parkings les moins utilises
 
+create or replace view classement_parkings_moins as
 select NUMERO_PARKING, NOM_PARKING
 from(
 select NUMERO_PARKING, NOM_PARKING, count(NUMERO_PLACE) as NBR_PLACES_UTILISEES
@@ -83,6 +87,7 @@ order by count(NUMERO_PLACE) asc
 --remarque: pas besoin d'ajouter vehicules en plus dans les jointures
 --en suites.
 
+create or replace view parkings_classement__rentabilitee as
 select NUMERO_PARKING, NOM_PARKING, sum(tarif_horaire)*30/sum(HORAIRE_SORTIE-DATE_STATIONNEMENT) as rentabilitee_mensuelle
 from STATIONNEMENTS cross join POSITIONS
 natural join PARKINGS
@@ -96,6 +101,7 @@ order by rentabilitee_mensuelle desc;
 --*7/duree pour avoir le nombre de stationnements par semaine
 --et non pas sur toute la duree de la duree de la base totale.
 
+create or replace view communes_plus_demandees__s as
 select CODE_POSTAL, NOM_COMMUNE
 from(
 select CODE_POSTAL, NOM_COMMUNE, count(ID_STATIONNEMENT)*7/sum(HORAIRE_SORTIE-DATE_STATIONNEMENT) as nbr_stationnements
