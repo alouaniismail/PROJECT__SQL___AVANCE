@@ -64,7 +64,10 @@ natural join PARKINGS;
 
 --Liste de voitures qui se sont garées dans deux parkings différents au cours d'une journée.
 
-create or replace view voitures__se_garant_deux_fois_parking_different__journee as
+create or replace view voitures__deux_parkings_h as
+select NUMERO_IMMATRICULATION
+from
+(
 select NUMERO_IMMATRICULATION, count(NUMERO_PARKING)
 from
 STATIONNEMENTS natural join VEHICULES
@@ -73,8 +76,8 @@ natural join PARKINGS
 where floor(HORAIRE_SORTIE-DATE_STATIONNEMENT) = 0
 or floor(HORAIRE_SORTIE-DATE_STATIONNEMENT)=1
 group by NUMERO_IMMATRICULATION
-having count(NUMERO_PARKING) > 1 ;
-
+having count(NUMERO_PARKING) > 1 
+);
 
 
 
