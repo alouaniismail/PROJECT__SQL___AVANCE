@@ -18,7 +18,7 @@ delete from STATIONNEMENTS;
 delete from VEHICULES ;
 delete from PARKINGS ;
 delete from COMMUNES ;
-delete from PLACES ;
+delete from POSITIONS ;
 delete from PARKINGS ;
 
 commit ;
