@@ -54,10 +54,12 @@ group by NUMERO_PARKING, NOM_PARKING
 
 --Liste des places disponibles, par parking, à un moment donné.
 create or replace view places_dispos__parking as
-select NUMERO_PLACE, NUMERO_PARKING
-from
-POSITIONS natural join PARKINGS
-where NOM_PLACE is null;
+select NUMERO_PARKING, NOM_PARKING, NUMERO_PLACE
+from PARKINGS natural join POSITIONS
+minus
+select NUMERO_PARKING, NOM_PARKING, NUMERO_PLACE
+from STATIONNEMENTS natural join POSITIONS 
+natural join PARKINGS;
 
 
 --Liste de voitures qui se sont garées dans deux parkings différents au cours d'une journée.
@@ -68,6 +70,17 @@ from
 STATIONNEMENTS natural join VEHICULES
 natural join POSITIONS
 natural join PARKINGS
-where CAST((HORAIRE_SORTIE-DATE_STATIONNEMENT) AS SIGNED INTEGER) = 1
+where floor(HORAIRE_SORTIE-DATE_STATIONNEMENT) = 0
+or floor(HORAIRE_SORTIE-DATE_STATIONNEMENT)=1
 group by NUMERO_IMMATRICULATION
 having count(NUMERO_PARKING) > 1 ;
+
+
+
+
+
+
+
+
+
+
