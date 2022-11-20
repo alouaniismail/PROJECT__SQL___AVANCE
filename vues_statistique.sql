@@ -37,7 +37,7 @@ group by NUMERO_PARKING, NOM_PARKING;
 --la durée moyenne de stationnement d'un véhicule par parking.
 
 create or replace view duree_moy_stat_vehicule__p as
-select NUMERO_PARKING, sum(HORAIRE_SORTIE-DATE_STATIONNEMENT)/count(NUMERO_IMMATRICULATION)
+select NUMERO_PARKING, sum(HORAIRE_SORTIE-DATE_STATIONNEMENT)/count(NUMERO_IMMATRICULATION) as duree_moy
 from STATIONNEMENTS natural join POSITIONS
 natural join PARKINGS
 natural join VEHICULES
@@ -87,7 +87,7 @@ order by count(NUMERO_PLACE) asc
 --remarque: pas besoin d'ajouter vehicules en plus dans les jointures
 --en suites.
 
-create or replace view parkings_classement__rentabilitee as
+create or replace view parkings_classement__rs as
 select NUMERO_PARKING, NOM_PARKING, sum(tarif_horaire)*30/sum(HORAIRE_SORTIE-DATE_STATIONNEMENT) as rentabilitee_mensuelle
 from STATIONNEMENTS cross join POSITIONS
 natural join PARKINGS
