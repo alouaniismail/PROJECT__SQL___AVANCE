@@ -1,0 +1,193 @@
+#notes a retenir des 4 tds:
+-------------------------------------
+(+fcts, procedures, triggers(inclus))./
+
+select NOM_ACTEUR
+from ACTEUR
+where DATE_DE_NAISSANCE between DATE '1950-01-01' and DATE '1999-12-31';
+
+select ROLE.NOM_DU_ROLE
+from ACTEUR,ROLE
+where ACTEUR.NUMERO_ACTEUR=ROLE.NUMERO_ACTEUR
+and ACTEUR.NUMERO_ACTEUR=7
+order by NOM_ACTEUR asc;
+
+select A.*
+from ACTEUR A inner join ROLE R
+on A.NUMERO_ACTEUR=R.NUMERO_ACTEUR
+inner join FILM
+using(NUMERO_FILM)
+inner join REALISATEUR 
+using(NUMERO_REALISATEUR)
+where NUMERO_REALISATEUR=7;
+
+select NOM_REALISATEUR from(
+select NOM_REALISATEUR, count(NUMERO_FILM)
+from REALISATEUR natural join FILM
+group by NOM_REALISATEUR
+having count(NUMERO_FILM) >=1) ;
+
+select distinct NOM_REALISATEUR from
+REALISATEUR natural join FILM
+;
+<=>
+select distinct R.NOM_REALISATEUR
+from REALISATEUR R, FILM F
+where R.NUMERO_REALISATEUR = F.NUMERO_REALISATEUR;
+
+select distinct R.NOM_REALISATEUR
+from REALISATEUR R inner join FILM F
+using(NUMERO_REALISATEUR);
+
+
+select NOM_ACTEUR, min(DUREE), max(DUREE), avg(DUREE), max(DUREE)-min(DUREE) as MAX_ECART
+from ACTEUR natural join ROLE
+natural join FILM
+group by NOM_ACTEUR;
+
+select NOM_REALISATEUR, count(NUMERO_FILM) as nbr_films
+from REALISATEUR natural join FILM
+group by NOM_REALISATEUR
+having count(NUMERO_FILM)=2;
+
+
+select NUMERO_REALISATEUR, NOM_REALISATEUR, count(NUMERO_FILM)
+from REALISATEUR natural join FILM
+group by NUMERO_REALISATEUR, NOM_REALISATEUR
+having count(NUMERO_FILM) >=3
+order by count(NUMERO_FILM) desc, NOM_REALISATEUR asc;
+
+select distinct A.NUMERO_ACTEUR, avg(DUREE)
+from ACTEUR A, ROLE R, FILM F
+where A.NUMERO_ACTEUR=R.NUMERO_ACTEUR
+and F.NUMERO_FILM=R.NUMERO_FILM
+and A.NATION_ACTEUR='FRANCAISE'
+group by A.NUMERO_ACTEUR
+having avg(DUREE) < 600;
+
+
+select R.*
+from REALISATEUR R
+minus
+select R.*      
+from REALISATEUR R, FILM F
+where R.NUMERO_REALISATEUR=F.NUMERO_REALISATEUR;
+
+select NUMERO_REALISATEUR 
+from(
+select NUMERO_REALISATEUR, DUREE
+from REALISATEUR natural join FILM
+where DUREE=(select max(DUREE) from FILM)
+);
+
+select NUMERO_ACTEUR, NOM_ACTEUR
+from ACTEUR
+where NATION_ACTEUR in (
+select NATION_ACTEUR
+from(
+select NATION_ACTEUR, count(*)
+from ACTEUR
+group by NATION_ACTEUR
+order by count(*) desc)
+where rownum=1
+);
+
+select NOM_ACTEUR
+from ACTEUR
+where NOM_ACTEUR not in(
+select NOM_ACTEUR      
+from ACTEUR natural join ROLE
+natural join FILM
+natural join REALISATEUR
+where NUMERO_REALISATEUR=7);
+
+select NOM_REALISATEUR
+from REALISATEUR
+where NOM_REALISATEUR not in(
+select NOM_REALISATEUR
+from REALISATEUR natural join FILM);
+
+select distinct A.NOM_ACTEUR 
+from REALISATEUR R, ACTEUR A
+where A.NOM_ACTEUR=R.NOM_REALISATEUR;
+
+select A.NOM_ACTEUR
+from ACTEUR A, ACTEUR COPIE
+where A.NOM_ACTEUR=COPIE.NOM_ACTEUR
+group by A.NOM_ACTEUR
+having count(*)=1;
+
+insert into REALISATEUR values (100,'rien','rien','rien');
+
+delete from ACTEUR #comme select from
+where NATION_ACTEUR='AMERICAINE';
+
+
+===================================================
+base_etendue:
+
+ACTEUR (NUMERO_ACTEUR, NOM_ACTEUR, PRENOM_ACTEUR, NATION_ACTEUR, DATE_DE_NAISSANCE)
+ROLE (#NUMERO_ACTEUR, #NUMERO_FILM,NOM_DU_ROLE)
+FILM (NUMERO_FILM, TITRE_FILM, DATE_DE_SORTIE, DUREE, GENRE, #NUMERO_REALISATEUR)
+REALISATEUR (NUMERO\_REALISATEUR, NOM_REALISATEUR, PRENOM_REALISATEUR, NATION_REALISATEUR)
+SEANCE (NUMERO_SEANCE, #NUMERO_FILM, #CATEGORIE_DE_LA_SEANCE, DATE_DE_LA_SEANCE, HORAIRE)
+CATEGORIE_SEANCE (CATEGORIE_DE_LA_SEANCE, TYPE_SEANCE)
+RESERVATION (#NUMERO_SEANCE, #NUMERO_PLACE, NOM_SPECTATEUR)
+PLACE (NUMERO_PLACE, #CATEGORIE_DE_LA_PLACE)
+CATEGORIE_PLACE (CATEGORIE_DE_LA_PLACE, TYPE_PLACE)
+TARIF (#CATEGORIE_DE_LA_PLACE, #CATEGORIE_DE_LA_SEANCE, PRIX)
+
+
+select distinct DATE_DE_LA_SEANCE
+from SEANCE natural join ROLE
+natural join ACTEUR
+natural join FILM
+where NUMERO_ACTEUR=1;
+
+select DATE_DE_LA_SEANCE, HORAIRE 
+from SEANCE natural join FILM
+where NUMERO_FILM=7
+order by DATE_DE_LA_SEANCE desc, HORAIRE asc;
+
+select NOM_ACTEUR, PRENOM_ACTEUR, count(NOM_DU_ROLE) as NOMBRE
+from
+ACTEUR left outer join ROLE
+on ACTEUR.NUMERO_ACTEUR=ROLE.NUMERO_ACTEUR
+group by NOM_ACTEUR, PRENOM_ACTEUR
+order by NOMBRE desc;
+
+create or replace view acteur_nbr__seances as
+select NOM_ACTEUR as NOM, count(NUMERO_SEANCE) as SEANCES
+from SEANCE natural join FILM
+natural join ROLE
+natural join ACTEUR
+group by NOM_ACTEUR
+having count(NUMERO_SEANCE) > 0;
+select * from nbr_acteur__seances;#consultation de la vue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
