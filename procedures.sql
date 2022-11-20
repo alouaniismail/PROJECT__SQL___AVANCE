@@ -20,7 +20,7 @@
 CREATE or REPLACE PROCEDURE procedure_places_stat
   IS
   BEGIN
-  FOR compteur IN (SELECT * FROM vue_places_stats)
+  FOR compteur IN (SELECT * FROM vue_places_stats_2)
   LOOP
     IF compteur.NUMERO_PLACE is not NULL THEN
       dbms_output.put_line('Cette place(position !) na jamais ete occupee par une voiture : ' || compteur.NUMERO_PLACE);
