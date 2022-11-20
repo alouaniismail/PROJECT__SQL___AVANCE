@@ -16,7 +16,11 @@ drop table STATIONNEMENTS cascade constraints;
 
 drop table POSITIONS cascade constraints;
 
+drop sequence num_position__seq;
+
 drop table PARKINGS cascade constraints;
+
+drop sequence num_parking__seq;
 
 drop table VEHICULES cascade constraints;
 
@@ -59,6 +63,13 @@ create table VEHICULES
 --   Table : PARKINGS
 -- ============================================================
 
+create sequence num_parking__seq
+       minvalue 0
+       maxvalue 1000
+       start with 0
+       increment by 1
+       cache 10;
+
 create table PARKINGS
 (
 	NUMERO_PARKING	NUMBER(3)	not null,
@@ -74,6 +85,13 @@ create table PARKINGS
 -- ============================================================
 --   Table : POSITIONS          
 -- ============================================================
+
+create sequence num_position__seq
+       minvalue 0
+       maxvalue 1000
+       start with 0
+       increment by 1
+       cache 10;
 
 create table POSITIONS
 (
