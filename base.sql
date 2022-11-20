@@ -1,8 +1,10 @@
 -- ============================================================
---   Nom de la base   :  CINEMA                                
+--   Nom de la base   :  Parking_campus                                
 --   Nom de SGBD      :  ORACLE Version 7.0                    
---   Date de creation :  30/10/96  12:09                       
+--   Date de creation :  20/11/2022 02:54                       
 -- ============================================================
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY HH24:MI';
 
 drop table STATIONNEMENTS cascade constraints;
 
