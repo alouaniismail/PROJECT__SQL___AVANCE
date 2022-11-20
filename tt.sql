@@ -10,9 +10,10 @@ drop table PLACES cascade constraints;
 
 drop table PARKINGS cascade constraints;
 
+drop table VEHICULES cascade constraints;
+
 drop table COMMUNES cascade constraints;
 
-drop table VEHICULES cascade constraints;
 
 -- ============================================================
 --   Table : COMMUNES
@@ -73,6 +74,10 @@ create table STATIONNEMENTS
 
 
 
+alter table PLACES
+      add constraint fk1_place foreign key (NUMERO_PARKING)
+      	  references PARKINGS (NUMERO_PARKING);
+
 alter table PARKINGS
       add constraint fk1_parking foreign key (CODE_POSTAL)
       	  references COMMUNES (CODE_POSTAL);
@@ -86,6 +91,3 @@ alter table STATIONNEMENTS
       	  references VEHICULES (NUMERO_IMMATRICULATION);
 
 
-alter table PLACES
-      add constraint fk1_place foreign key (NUMERO_PARKING)
-      	  references PARKINGS (NUMERO_PARKING);
