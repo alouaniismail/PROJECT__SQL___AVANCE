@@ -30,3 +30,6 @@ CREATE or REPLACE PROCEDURE procedure_places_stat
 
   END ;
 /		   
+
+--exemple seulement simple à cet instant, on ajoutera au moins 3 procedures de
+--plus par la suite.
