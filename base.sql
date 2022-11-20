@@ -37,7 +37,7 @@ create table VEHICULES
 (
 	NUMERO_IMMATRICULATION	CHAR(11)	not null,
 	MARQUE 			CHAR(17)	not null,
-	DATE_DE_MISE_EN_CIRCULATION		DATE	not null,
+	DATE_DE_MISE_EN_CIRCULATION		CHAR(20)	not null,
 	TYPE_VEHICULE				CHAR(25)    ,
 	KILOMETRAGE 				NUMBER(7)   not null,
 	ETAT					CHAR(8)	    ,
@@ -81,8 +81,8 @@ create table POSITIONS
 create table STATIONNEMENTS
 (
 	ID_STATIONNEMENT	NUMBER(4)	not null,
-	DATE_STATIONNEMENT 	DATE		not null,
-	HORAIRE_SORTIE		DATE		not null,
+	DATE_STATIONNEMENT 	CHAR(20)		not null,
+	HORAIRE_SORTIE		CHAR(20)		not null,
 	NUMERO_PLACE		NUMBER(5)	not null,
 	NUMERO_IMMATRICULATION	CHAR(11)	not null,
 	constraint pk_stationnement primary key (ID_STATIONNEMENT)
