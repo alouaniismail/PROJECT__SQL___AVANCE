@@ -6,7 +6,7 @@
 
 drop table STATIONNEMENTS cascade constraints;
 
-drop table PLACES cascade constraints;
+drop table POSITIONS cascade constraints;
 
 drop table PARKINGS cascade constraints;
 
@@ -58,15 +58,15 @@ create table PARKINGS
 
 
 -- ============================================================
---   Table : PLACES                                         
+--   Table : POSITIONS          
 -- ============================================================
 
-create table PLACES
+create table POSITIONS
 (
 	NUMERO_PLACE NUMBER(4)	not null,
 	NOM_PLACE    CHAR(30)		,
 	NUMERO_PARKING			NUMBER(3)	not null,
-	constraint pk_place primary key (NUMERO_PLACE)
+	constraint pk_position primary key (NUMERO_PLACE)
 );
 	
 
@@ -87,8 +87,8 @@ create table STATIONNEMENTS
 
 
 
-alter table PLACES
-      add constraint fk1_place foreign key (NUMERO_PARKING)
+alter table POSITIONS
+      add constraint fk1_position foreign key (NUMERO_PARKING)
       	  references PARKINGS (NUMERO_PARKING);
 
 alter table PARKINGS
