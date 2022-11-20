@@ -58,6 +58,19 @@ create table PARKINGS
 
 
 -- ============================================================
+--   Table : PLACES                                         
+-- ============================================================
+
+create table PLACES
+(
+	NUMERO_PLACE NUMBER(4)	not null,
+	NOM_PLACE    CHAR(30)		,
+	NUMERO_PARKING			NUMBER(3)	not null,
+	constraint pk_place primary key (NUMERO_PLACE)
+);
+	
+
+-- ============================================================
 --   Table : STATIONNEMENTS                                          
 -- ============================================================
 
