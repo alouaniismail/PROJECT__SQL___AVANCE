@@ -73,7 +73,7 @@ create sequence num_parking__seq
 create table PARKINGS
 (
 	NUMERO_PARKING	NUMBER(3)	not null,
-	NOM_PARKING 	CHAR(30)	not null,
+	NOM_PARKING 	CHAR(100)	not null,
 	ADRESSE		CHAR(40)	not null,
 	TARIF_HORAIRE 	NUMBER(4)	not null,
 	CAPACITE	NUMBER(5)	,
