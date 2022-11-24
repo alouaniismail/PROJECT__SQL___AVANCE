@@ -21,9 +21,10 @@ CREATE OR REPLACE FUNCTION places_occupation__p(num_p IN NUMBER)
     nbr_places_occupees__p2 NUMBER;
    BEGIN
 
-      SELECT COUNT(NUMERO_PLACE) INTO nb_places__occupees__p2
+      SELECT NUMERO_PARKING, COUNT(NUMERO_PLACE) INTO nb_places__occupees__p2
       FROM STATIONNEMENTS natural join POSITIONS
-      natural join PARKINGS;
+      natural join PARKINGS
+      group by NUMERO_PARKING;
 
       nbr_places_occupees__p := nbr_places_occupees__p2;
       RETURN(nbr_places_occupees__p);
