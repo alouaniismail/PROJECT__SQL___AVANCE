@@ -158,7 +158,7 @@ java.sql.Date date1 = format.parse(str1);
 		Scanner scanner16=new Scanner(System.in);
 		String str2=scanner16.nextLine();
         	SimpleDateFormat format2 = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
-	java.sql.Date date2=format2.parse(str2);
+	java.sql.Date date2=str2.parse(format2);
 
 			System.out.println("Entrez le numéro de la place");
 		Scanner scanner17=new Scanner(System.in);
