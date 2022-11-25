@@ -8,10 +8,10 @@ public class interfaceJDBC{
 public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException{
     Scanner scanner100=new Scanner(System.in);
     while(scanner100.nextInt()!=0){
-insertions();
+insertions1();
     }
 }
-    public static void insertions()
+    public static void insertions1()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
 	OracleDataSource ods=new OracleDataSource();
         ods.setUser("ialouani"); 
@@ -88,4 +88,30 @@ insertions();
 	}
 	}
     }
+
+     public static void insertions2()
+	 throws SQLException, ClassNotFoundException, java.io.IOException{
+	  System.out.println("Entrez le numero de la place:");
+		Scanner scanner10=new Scanner(System.in);
+		int seven=scanner10.nextInt();
+		
+		System.out.println("Entrez le nom de la place:");
+		Scanner scanner11=new Scanner(System.in);
+		String eight=scanner11.nextLine();
+		
+		System.out.println("Entrez le numero du parking");
+		Scanner scanner12=new Scanner(System.in);
+		String nine=scanner12.nextInt();
+		conn=ods.getConnection();
+		stmt=conn.prepareStatement("insert into POSITIONS "
+					   +" (NUMERO_PLACE, NOM_PLACE, NUMERO_PARKING)"
+                                              + " values (?,?,?)");
+	    
+		stmt.setInt(10,seven);
+		stmt.setString(11,eight);
+		stmt.setInt(12,nine);
+		stmt.executeUpdate();
+
+     }
 }
+
