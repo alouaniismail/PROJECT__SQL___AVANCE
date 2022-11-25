@@ -45,7 +45,7 @@ public class interfaceJDBC{
       
 	}
 
-	else if(scanner.nextInt()==2){
+	else if(choix==2){
 	    Connection conn=null;
 	    PreparedStatement stmt=null;
 		Scanner scanner2=new Scanner(System.in);
@@ -77,9 +77,9 @@ public class interfaceJDBC{
 					   +" (NUMERO_PARKING, NOM_PARKING, ADRESSE, TARIF_HORAIRE, CAPACITE, CODE_POSTAL)" + " values (?,?,?,?,?,?)");
 	    
 		stmt.setInt(1,one);
-		stmt.setInt(2,two);
+		stmt.setString(2,two);
 		stmt.setString(3,three);
-		stmt.setString(4,four);
+		stmt.setInt(4,four);
 		stmt.setInt(5,five);
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
