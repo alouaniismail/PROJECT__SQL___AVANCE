@@ -93,7 +93,7 @@ insertions2();
     }
 
      public static void insertions2()
-	 throws SQLException, ClassNotFoundException, java.io.IOException{
+	 throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
 	 	OracleDataSource ods=new OracleDataSource();
         ods.setUser("ialouani"); 
         ods.setPassword("ialouani");
