@@ -12,6 +12,11 @@ insertions1();
 insertions2();
     }
 }
+
+public static void dateMethod(Date date) {
+    System.out.println(date);
+}
+
     public static void insertions1()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
 	OracleDataSource ods=new OracleDataSource();
@@ -145,20 +150,23 @@ insertions2();
 	Scanner scanner14=new Scanner(System.in);
 		int ten=scanner14.nextInt();
 		
-		System.out.println("Entrez la date de stationnement");
-		Scanner scanner15=new Scanner(System.in);
-		String eleven=scanner15.nextDate();
+	   System.out.println("Entrez la date de stationnement");
+	   	Scanner scanner15=new Scanner(System.in);
+     	SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
+	format.parse(scanner15.next());
+
 		
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
-		String tweleve=scanner12.nextDate();
+        	SimpleDateFormat format2 = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
+	format.parse(scanner16.next());
 
 			System.out.println("Entrez le numéro de la place");
 		Scanner scanner17=new Scanner(System.in);
-		String thirteen=scanner17.nextInt();
+		String eleven=scanner17.nextInt();
 			System.out.println("Entrez le num d'immatriculation");
 		Scanner scanner18=new Scanner(System.in);
-		String fourteen=scanner18.nextDate();
+		String tweleve=scanner18.nextDate();
 
 		
 		conn=ods.getConnection();
@@ -167,10 +175,10 @@ insertions2();
                                               + " values (?,?,?,?,?)");
 	    
 		stmt.setInt(1,ten);
-		stmt.setDate(2,eleven);
-		stmt.setDate(3,tweleve);
-		stmt.setInt(4,thirteen);
-		stmt.setInt(5,fourteen);
+		stmt.setDate(2,format);
+		stmt.setDate(3,format2);
+		stmt.setInt(4,eleven);
+		stmt.setInt(5,tweleve);
 		stmt.executeUpdate();
 	}
 	}
