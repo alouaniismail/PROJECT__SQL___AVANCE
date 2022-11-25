@@ -13,10 +13,6 @@ insertions2();
     }
 }
 
-public static void dateMethod(Date date) {
-    System.out.println(date);
-}
-
     public static void insertions1()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
 	OracleDataSource ods=new OracleDataSource();
@@ -152,14 +148,16 @@ public static void dateMethod(Date date) {
 		
 	   System.out.println("Entrez la date de stationnement");
 	   	Scanner scanner15=new Scanner(System.in);
+		String str1=scanner15.nextLine();
      	SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
-	format.parse(scanner15.next());
+	java.sql.Date date1 = format.parse(str1);
 
 		
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
+		String str2=scanner16.nextLine();
         	SimpleDateFormat format2 = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
-	format.parse(scanner16.next());
+	java.sql.Date date2=format2.parse(str2);
 
 			System.out.println("Entrez le numéro de la place");
 		Scanner scanner17=new Scanner(System.in);
@@ -175,8 +173,8 @@ public static void dateMethod(Date date) {
                                               + " values (?,?,?,?,?)");
 	    
 		stmt.setInt(1,ten);
-		stmt.setDate(2,format);
-		stmt.setDate(3,format2);
+		stmt.setDate(2,date1);
+		stmt.setDate(3,date2);
 		stmt.setInt(4,eleven);
 		stmt.setInt(5,tweleve);
 		stmt.executeUpdate();
