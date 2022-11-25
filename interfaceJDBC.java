@@ -29,7 +29,7 @@ public class interfaceJDBC{
 	print("4.Stationnement");
 	print("5.Vehicules");
 	Scanner scanner =new Scanner(System.in);
-	if(scanner.nextLine()==1){
+	if(scanner.nextInt()==1){
 	    OracleDataSource ods=new OracleDataSource();
 	    ods.setUser("ialouani");
 	    ods.setPassword("ialouani");
@@ -37,11 +37,11 @@ public class interfaceJDBC{
 	    Connection conn=null;
 	    PreparedStatement stmt=null;
 	    try{
-		Scanner scanner=new Scanner(System.in);
+		Scanner scanner2=new Scanner(System.in);
 		System.out.println("Entrez le code postal:");
-		String one=scanner.nextLine();
+		String one=scanner2.nextLine();
 		System.out.println("Entrez le numero de la commune:");
-		int two=scanner.nextInt();
+		int two=scanner2.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into COMMUNES "
 					   +" (CODE_POSTAL, NOM_COMMUNE)" + " values (?,?)");
