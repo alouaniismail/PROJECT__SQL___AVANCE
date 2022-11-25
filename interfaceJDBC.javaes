@@ -5,8 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 public class interfaceJDBC{
-
-    public static void main(String args[])
+ public static void main(String args[])
  	throws SQLException, ClassNotFoundException, java.io.IOException{
 	OracleDataSource ods=new OracleDataSource();
         ods.setUser("ialouani"); 
@@ -14,10 +13,10 @@ public class interfaceJDBC{
 	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
 	Scanner scanner1=new Scanner(System.in);
 	System.out.println("Veuillez choisir parmi le menu suivant");
-	System.out.println("1.Insertions(incluant des mises à jou)");
-	System.out.println("2.Consultations(incluant les vues de statistiques)");
-	int choix=scanner1.nextInt();
-	if(choix==1){
+	System.out.println("1.Insertions(incluant des mises à jour");
+	System.out.println("2.Consultations(incluant les vues de statistiques");
+	int a=scanner1.nextInt();
+	if(a==1){
 	System.out.println("Veuillez suivre les instructions suivantes:");
 	System.out.println("1.Communes");
 	System.out.println("2.Parkings");
@@ -31,17 +30,17 @@ public class interfaceJDBC{
 	    try{
 		Scanner scanner2=new Scanner(System.in);
 		System.out.println("Entrez le code postal:");
-		int one=scanner2.nextInt();
+		String one=scanner2.nextLine();
 		System.out.println("Entrez le numero de la commune:");
-		Scanner scanner3=new Scanner(System.in);
-		String two=scanner3.nextLine();
+		int two=scanner2.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into COMMUNES "
 					   +" (CODE_POSTAL, NOM_COMMUNE)" + " values (?,?)");
 	    
-		stmt.setInt(1,one);
-		stmt.setString(2,two);
+		stmt.setString(1,one);
+		stmt.setInt(2,two);
 		stmt.executeUpdate();
+		insertions();
 	    }
 	    finally{
 		if(stmt!=null){
@@ -55,4 +54,3 @@ public class interfaceJDBC{
 }
 }
 }
-
