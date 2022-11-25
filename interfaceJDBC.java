@@ -6,7 +6,10 @@ import java.io.*;
 
 public class interfaceJDBC{
 public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException{
+    Scanner scanner100=new Scanner(System.in);
+    while(scanner100.nextInt()!=0){
 insertions();
+    }
 }
     public static void insertions()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
@@ -83,6 +86,6 @@ insertions();
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
 	}
-}
-}
+	}
+    }
 }
