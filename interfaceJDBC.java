@@ -174,7 +174,7 @@ insertions2();
                                               + " values (?,?,?,?,?)");
 	    
 		stmt.setInt(1,ten);
-		stmt.setDate(2,sqlDate1);
+		stmt.setDate(2,sqlDate);
 		stmt.setDate(3,sqlDate2);
 		stmt.setInt(4,eleven);
 		stmt.setInt(5,tweleve);
