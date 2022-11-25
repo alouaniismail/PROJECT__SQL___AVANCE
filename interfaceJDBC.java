@@ -29,11 +29,11 @@ public class interfaceJDBC{
 	print("4.Stationnement");
 	print("5.Vehicules");
 	Scanner scanner =new Scanner(System.in);
-	OracleDataSource ods=new OracleDataSource();
+	if(scanner.nextLine()==1){
+	    OracleDataSource ods=new OracleDataSource();
 	    ods.setUser("ialouani");
 	    ods.setPassword("ialouani");
 	    ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
-	if(scanner.nextLine()==1){
 	    Connection conn=null;
 	    PreparedStatement stmt=null;
 	    try{
