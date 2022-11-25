@@ -3,7 +3,7 @@ import oracle.jdbc.pool.OracleDataSource;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-import java.text.SimpleDataFormat;
+import java.text.*;
 
 public class interfaceJDBC{
 public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException{
