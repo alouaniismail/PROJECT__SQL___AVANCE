@@ -25,9 +25,9 @@ public class interfaceJDBC{
 	System.out.println("4.Stationnement");
 	System.out.println("5.Vehicules");
 	Scanner scanner =new Scanner(System.in);
+	Connection conn=null;
+	PreparedStatement stmt=null;
 	if(scanner.nextInt()==1){
-	    Connection conn=null;
-	    PreparedStatement stmt=null;
 		Scanner scanner2=new Scanner(System.in);
 		System.out.println("Entrez le code postal:");
 		int one=scanner2.nextInt();
@@ -44,10 +44,8 @@ public class interfaceJDBC{
 	    }
 
 	else if(scanner.nextInt()==2){
-	    Connection conn=null;
-	    PreparedStatement stmt=null;
+	    System.out.println("Entrez le numero du parking:");
 		Scanner scanner2=new Scanner(System.in);
-		System.out.println("Entrez le numero du parking:");
 		int one=scanner2.nextInt();
 		
 		System.out.println("Entrez le nom du parking:");
