@@ -5,8 +5,10 @@ import java.lang.*;
 import java.io.*;
 
 public class interfaceJDBC{
-
-    public static void main(String args[])
+public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException{
+insertions();
+}
+    public static void insertions()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
 	OracleDataSource ods=new OracleDataSource();
         ods.setUser("ialouani"); 
@@ -43,14 +45,14 @@ public class interfaceJDBC{
 		stmt.executeUpdate();
 	    }
 
-	else if(scanner.nextInt()==2){
+	else{
 	    System.out.println("Entrez le numero du parking:");
-		Scanner scanner2=new Scanner(System.in);
-		int one=scanner2.nextInt();
+		Scanner scanner8=new Scanner(System.in);
+		int one=scanner8.nextInt();
 		
 		System.out.println("Entrez le nom du parking:");
-		Scanner scanner3=new Scanner(System.in);
-		String two=scanner3.nextLine();
+		Scanner scanner9=new Scanner(System.in);
+		String two=scanner9.nextLine();
 		
 		System.out.println("Entrez l'adresse:");
 		Scanner scanner4=new Scanner(System.in);
@@ -70,7 +72,8 @@ public class interfaceJDBC{
 
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into PARKINGS "
-					   +" (NUMERO_PARKING, NOM_PARKING, ADRESSE, TARIF_HORAIRE, CAPACITE, CODE_POSTAL)" + " values (?,?,?,?,?,?)");
+					   +" (NUMERO_PARKING, NOM_PARKING, ADRESSE, TARIF_HORAIRE, CAPACITE, CODE_POSTAL)"
+                                              + " values (?,?,?,?,?,?)");
 	    
 		stmt.setInt(1,one);
 		stmt.setString(2,two);
@@ -80,8 +83,6 @@ public class interfaceJDBC{
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
 	}
-	}
-    }
 }
-
-
+}
+}
