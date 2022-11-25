@@ -125,12 +125,13 @@ insertions2();
 		System.out.println("Entrez le type de la place");
 		Scanner scanner20=new Scanner(System.in);
 		String nine2=scanner20.nextLine();
+		
 		System.out.println("Entrez le numero du parking");
 		Scanner scanner12=new Scanner(System.in);
 		String nine=scanner12.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into POSITIONS "
-					   +" (NUMERO_PLACE, NOM_PLACE, TYPE_PLACE, NUMERO_PARKING)"
+					   +" (NUMERO_PLACE, NOM_PLACE, NOM_POSITION, NUMERO_PARKING)"
                                               + " values (?,?,?)");
 	    
 		stmt.setInt(1,seven);
