@@ -10,10 +10,9 @@ public class interfaceJDBC{
 	print("Veuillez choisir parmi le menu suivant");
 	print("1.Insertions(incluant des mises à jour");
 	print("2.Consultations(incluant les vues de statistiques");
-	if(scanner.nextLine()==1)
+	int a=scanner.nextInt();
+	if(a==1)
 	    insertions();
-	else if(scanner.nextLine()==2)
-	    consultations();
 	else
 	    return;
     }
@@ -42,13 +41,13 @@ public class interfaceJDBC{
 		System.out.println("Entrez le code postal:");
 		String one=scanner.nextLine();
 		System.out.println("Entrez le numero de la commune:");
-		int two=scanner.nextLine();
+		int two=scanner.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into COMMUNES "
 					   +" (CODE_POSTAL, NOM_COMMUNE)" + " values (?,?)");
 	    
 		stmt.setString(1,one);
-		stmt.setInteger(2,two);
+		stmt.setInt(2,two);
 		stmt.executeUpdate();
 		insertions();
 	    }
@@ -61,4 +60,5 @@ public class interfaceJDBC{
 		}
 	    }
 	}
+    }
 }
