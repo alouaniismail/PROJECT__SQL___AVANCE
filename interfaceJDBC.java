@@ -113,25 +113,30 @@ insertions2();
 	Connection conn=null;
 	PreparedStatement stmt=null;
 	if(scanner19.nextInt()==3){
-	
+	    System.out.println("Entrez le numero de la place: ");
 		Scanner scanner10=new Scanner(System.in);
 		int seven=scanner10.nextInt();
 		
 		System.out.println("Entrez le nom de la place:");
 		Scanner scanner11=new Scanner(System.in);
 		String eight=scanner11.nextLine();
-		
+
+
+		System.out.println("Entrez le type de la place");
+		Scanner scanner20=new Scanner(System.in);
+		String nine2=scanner20.nextLine();
 		System.out.println("Entrez le numero du parking");
 		Scanner scanner12=new Scanner(System.in);
 		String nine=scanner12.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into POSITIONS "
-					   +" (NUMERO_PLACE, NOM_PLACE, NUMERO_PARKING)"
+					   +" (NUMERO_PLACE, NOM_PLACE, TYPE_PLACE, NUMERO_PARKING)"
                                               + " values (?,?,?)");
 	    
 		stmt.setInt(1,seven);
 		stmt.setString(2,eight);
-		stmt.setInt(3,nine);
+		stmt.setString(3,nine2);
+		stmt.setInt(4,nine);
 		stmt.executeUpdate();
 	}
 	else{
