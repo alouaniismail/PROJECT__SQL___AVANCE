@@ -42,10 +42,8 @@ public class interfaceJDBC{
 		stmt.setString(2,two);
 		stmt.executeUpdate();
 	    }
-      
-	}
 
-	else if(choix==2){
+	else if(scanner.nextInt()==2){
 	    Connection conn=null;
 	    PreparedStatement stmt=null;
 		Scanner scanner2=new Scanner(System.in);
@@ -83,7 +81,8 @@ public class interfaceJDBC{
 		stmt.setInt(5,five);
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
-	    }
+	}
+	}
     }
 }
 
