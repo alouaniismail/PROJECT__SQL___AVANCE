@@ -28,7 +28,6 @@ public class interfaceJDBC{
 	if(scanner.nextInt()==1){
 	    Connection conn=null;
 	    PreparedStatement stmt=null;
-	    try{
 		Scanner scanner2=new Scanner(System.in);
 		System.out.println("Entrez le code postal:");
 		int one=scanner2.nextInt();
@@ -43,16 +42,49 @@ public class interfaceJDBC{
 		stmt.setString(2,two);
 		stmt.executeUpdate();
 	    }
-	    finally{
-		if(stmt!=null){
-		    stmt.close();
-		}
-		if(conn!=null){
-		    conn.close();
-		}
+      
+	}
+
+	else if(scanner.nextInt()==2){
+	    Connection conn=null;
+	    PreparedStatement stmt=null;
+		Scanner scanner2=new Scanner(System.in);
+		System.out.println("Entrez le numero du parking:");
+		int one=scanner2.nextInt();
+		
+		System.out.println("Entrez le nom du parking:");
+		Scanner scanner3=new Scanner(System.in);
+		String two=scanner3.nextLine();
+		
+		System.out.println("Entrez l'adresse:");
+		Scanner scanner4=new Scanner(System.in);
+		String three=scanner4.nextLine();
+		
+		System.out.println("Entrez le tarif horaire:");
+		Scanner scanner5=new Scanner(System.in);
+		int four=scanner5.nextInt();
+		
+		System.out.println("Entrez la capacitee:");
+		Scanner scanner6=new Scanner(System.in);
+		int five=scanner6.nextInt();
+
+		System.out.println("Entrez le code postal:");
+		Scanner scanner7=new Scanner(System.in);
+		int six=scanner7.nextInt();
+
+		conn=ods.getConnection();
+		stmt=conn.prepareStatement("insert into PARKINGS "
+					   +" (NUMERO_PARKING, NOM_PARKING, ADRESSE, TARIF_HORAIRE, CAPACITE, CODE_POSTAL)" + " values (?,?,?,?,?,?)");
+	    
+		stmt.setInt(1,one);
+		stmt.setInt(2,two);
+		stmt.setString(3,three);
+		stmt.setString(4,four);
+		stmt.setInt(5,five);
+		stmt.setInt(6,six);
+		stmt.executeUpdate();
+	    }
+    }
 }
-}
-}
-}
-}
+
 
