@@ -151,15 +151,14 @@ insertions2();
 	   	Scanner scanner15=new Scanner(System.in);
 		String str1=scanner15.nextLine();
      	SimpleDateFormat format = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
-	java.sql.Date date1 = new java.sql.Date();
-	date1 = format.parse(str1);
+Date date1 = format.parse(str1);
 
 		
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
 		String str2=scanner16.nextLine();
         	SimpleDateFormat format2 = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS");
-		java.sql.Date date2 = new java.sql.Date();
+		
 	Date date2=format2.parse(str2);
 
 			System.out.println("Entrez le numéro de la place");
