@@ -128,7 +128,7 @@ insertions2();
 		
 		System.out.println("Entrez le numero du parking");
 		Scanner scanner12=new Scanner(System.in);
-		String nine=scanner12.nextInt();
+		int nine=scanner12.nextInt();
 		conn=ods.getConnection();
 		stmt=conn.prepareStatement("insert into POSITIONS "
 					   +" (NUMERO_PLACE, NOM_PLACE, NOM_POSITION, NUMERO_PARKING)"
