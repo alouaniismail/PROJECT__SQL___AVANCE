@@ -250,6 +250,11 @@ insertions2();
 		String str3=scanner22.nextLine();
 	Date date3 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("yyyyy-mm-dd hh:mm:ss").parse(str3)).getTime());
 
+	System.out.println("Entrez le type de ce véhicule: ");
+	Scanner scanner300=new Scanner(System.in);
+	int seventeen=scanner300.nextLine();
+
+	
 	System.out.println("Entrez le kilometrage jusqu'a maintenant:");
 		Scanner scanner23=new Scanner(System.in);
 		int fivetheen=scanner23.nextInt();
@@ -259,14 +264,15 @@ insertions2();
 		String sixtheen=scanner24.nextLine();
 
 	stmt=conn.prepareStatement("insert into VEHICULES "
-					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,KILOMETRAGE,ETAT)"
-                                              + " values (?,?,?,?,?)");
+					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,TYPE_VEHICULE,KILOMETRAGE,ETAT)"
+                                              + " values (?,?,?,?,?,?)");
 	    
 		stmt.setString(1,thirteen);
 		stmt.setString(2,fourtheen);
 		stmt.setDate(3,date3);
-		stmt.setInt(4,fivetheen);
-		stmt.setString(5,sixtheen);
+		stmt.setString(4,seventeen);
+		stmt.setInt(5,fivetheen);
+		stmt.setString(6,sixtheen);
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
 		
