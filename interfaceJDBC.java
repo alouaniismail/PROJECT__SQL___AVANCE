@@ -197,10 +197,10 @@ insertions2();
 	if(choix==1){
 	    System.out.println("Veuillez suivre les instructions suivantes:");
 	    System.out.println("5.Vehicules");
-	Scanner scanner19 =new Scanner(System.in);
+	Scanner scanner101 =new Scanner(System.in);
 	Connection conn=null;
 	PreparedStatement stmt=null;
-	if(scanner19.nextInt()==5){
+	if(scanner101.nextInt()==5){
 	    System.out.println("Entrez le nume d'immatriculation: ");
 	    Scanner scanner20=new Scanner(System.in);
 	    String thirteen=scanner20.nextLine();
