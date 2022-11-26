@@ -88,11 +88,10 @@ insertions2();
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
-	}
+	}}
 	else{
 	    
 	    consultations();
-	}
 	}
     }
 
