@@ -274,7 +274,7 @@ public class interfaceJDBC{
 	}}
 	else{
 	    
-	    consultations();
+	    consultations2();
 	}
      }
 
@@ -339,7 +339,7 @@ public class interfaceJDBC{
 	}
 	else{
 	    
-	    consultations();
+	    consultations3();
 	}
      }
 }
