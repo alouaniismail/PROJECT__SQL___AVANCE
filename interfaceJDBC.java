@@ -152,7 +152,7 @@ insertions2();
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
 		String str2=scanner16.nextLine();
-	         Date date1 = new java.sql.Date(
+	         Date date2 = new java.sql.Date(
                      ((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str2)).getTime());
      
 
@@ -170,8 +170,8 @@ insertions2();
                                               + " values (?,?,?,?,?)");
 	    
 		stmt.setInt(1,ten);
-		stmt.setDate(2,sqlDate);
-		stmt.setDate(3,sqlDate2);
+		stmt.setDate(2,date1);
+		stmt.setDate(3,date2);
 		stmt.setInt(4,eleven);
 		stmt.setInt(5,tweleve);
 		stmt.executeUpdate();
