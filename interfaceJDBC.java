@@ -252,7 +252,7 @@ insertions2();
 
 	System.out.println("Entrez le type de ce véhicule: ");
 	Scanner scanner300=new Scanner(System.in);
-	int seventeen=scanner300.nextLine();
+	String seventeen=scanner300.nextLine();
 
 	
 	System.out.println("Entrez le kilometrage jusqu'a maintenant:");
