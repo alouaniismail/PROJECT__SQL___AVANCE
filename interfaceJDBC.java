@@ -113,8 +113,12 @@ insertions2();
       if(scanner200.nextInt()==1){
       conn = ods.getConnection();
       stmt = conn.createStatement();
-      ResultSet rset = stmt.executeQuery("select *"+
-					 "from voitures_parkings");
+      ResultSet rset = stmt.executeQuery("select NUMERO_PARKING, NUMERO_IMMATRICULATION
+from
+STATIONNEMENTS natural join VEHICULES
+natural join POSITIONS
+natural join PARKINGS"
+);
 
       while (rset.next()) {
 	System.out.println("La voiture dont l'identification est celle-ci: " + rset.getString(2) + " est dans le parking identifié par "
