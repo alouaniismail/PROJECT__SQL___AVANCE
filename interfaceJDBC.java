@@ -231,9 +231,9 @@ public class interfaceJDBC{
 		System.out.println("Opération faite avec succès !");
 	}
 	else{
-	    conn=ods.getConnection();
+	    /*conn=ods.getConnection();
 	    Statement stat = conn.createStatement();
-	    stat.execute("alter session set NLS_DATE_FORMAT='yyyyy-mm-dd hh:mm:ss'");
+	    stat.execute("alter session set NLS_DATE_FORMAT='yyyyy-mm-dd hh:mm:ss'");*/
 	    System.out.println("Entrez un id de stationnement");
 	Scanner scanner14=new Scanner(System.in);
 		int ten=scanner14.nextInt();
