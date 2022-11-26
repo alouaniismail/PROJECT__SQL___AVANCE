@@ -1,0 +1,9 @@
+CREATE TRIGGER IF NOT EXISTS stationnements_sortie_trig
+  BEFORE UPDATE ON STATIONNEMENTS 
+  FOR EACH ROW
+BEGIN
+  IF NEW.date_sortie IS NULL THEN
+    SET NEW.date_sortie = CURRENT_TIMESTAMP;
+  END IF;
+END
+/

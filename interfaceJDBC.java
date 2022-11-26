@@ -157,9 +157,31 @@ public class interfaceJDBC{
      System.out.println(rset.getString(1)+rset.getString(2)+rset.getString(3));
 
  }
+ consultations3();
       }
  }
 
+     public static void consultations3()
+ 	throws SQLException, ClassNotFoundException, java.io.IOException{
+ System.out.println("Choisissez quelle vue consulter:");
+	    System.out.println("1.Liste des stationnements courants à cet instant reliant une vraie numero de place à une place d'immatriculation:");
+	    	OracleDataSource ods=new OracleDataSource();
+        ods.setUser("ialouani"); 
+        ods.setPassword("ialouani");
+	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
+	  	Scanner scanner200=new Scanner(System.in);
+		Connection conn = null;
+    Statement stmt = null;
+ conn = ods.getConnection();
+      stmt = conn.createStatement();
+      if(scanner200.nextInt()==1){
+      ResultSet rset = stmt.executeQuery("select * from STATIONNEMENTS");
+
+      while (rset.next()) {
+	  System.out.println(rset.getString(1)+rset.getString(2)+rset.getString(3)+rset.getString(4)+rset.getString(5));
+      }
+      }
+     }
     
      public static void insertions2()
 	 throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
