@@ -296,7 +296,7 @@ public class interfaceJDBC{
 	Connection conn=null;
 	PreparedStatement stmt=null;
 	if(scanner101.nextInt()==5){
-	    System.out.println("Entrez le nume d'immatriculation: ");
+	    System.out.println("Entrez le num d'immatriculation: ");
 	    Scanner scanner20=new Scanner(System.in);
 	    String thirteen=scanner20.nextLine();
 
