@@ -107,6 +107,8 @@ insertions2();
         ods.setPassword("ialouani");
 	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
 	  	Scanner scanner200=new Scanner(System.in);
+		Connection conn = null;
+    Statement stmt = null;
 
       if(scanner200.nextInt()==1){
       conn = ods.getConnection();
