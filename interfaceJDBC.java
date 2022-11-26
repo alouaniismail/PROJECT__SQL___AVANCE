@@ -227,8 +227,8 @@ insertions2();
 					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,KILOMETRAGE,ETAT)"
                                               + " values (?,?,?,?,?)");
 	    
-		stmt.setInt(1,thirteen);
-		stmt.setDate(2,fourtheen);
+		stmt.setString(1,thirteen);
+		stmt.setString(2,fourtheen);
 		stmt.setDate(3,date3);
 		stmt.setInt(4,fivetheen);
 		stmt.setInt(5,sixtheen);
