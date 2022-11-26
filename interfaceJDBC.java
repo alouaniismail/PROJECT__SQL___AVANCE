@@ -89,9 +89,41 @@ insertions2();
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
 	}
+	else{
+	    
+	    consultations();
+	}
 	}
     }
 
+     public static void consultations()
+ 	throws SQLException, ClassNotFoundException, java.io.IOException{
+ System.out.println("Choisissez quelle vue consulter:");
+	    System.out.println("1.Liste des voitures par parking, la liste des parkings par commune");
+	    System.out.println("2.Liste des parkings qui sont saturés à un jour donnée");
+	    System.out.println("3.Liste des places disponibles, par parking, à un moment donné");
+	    System.out.println("4.liste de voitures qui se sont garées dans deux parkings différents au cours d'une journée");
+	    	OracleDataSource ods=new OracleDataSource();
+        ods.setUser("ialouani"); 
+        ods.setPassword("ialouani");
+	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
+	  	Scanner scanner200=new Scanner(System.in);
+
+      if(scanner200.nextInt()==1){
+      conn = ods.getConnection();
+      stmt = conn.createStatement();
+      ResultSet rset = stmt.executeQuery("select *"+
+					 "from voitures_parkings");
+
+      while (rset.next()) {
+	System.out.println("La voiture dont l'identification est celle-ci: " + rset.getString(2) + " est dans le parking identifié par "
+			   + rset.getInt(1));
+      }
+      }
+
+     }
+
+	 
      public static void insertions2()
 	 throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
 	 	OracleDataSource ods=new OracleDataSource();
@@ -222,7 +254,7 @@ insertions2();
 
 		System.out.println("Entrez l'etat general de la voiture:");
 		Scanner scanner24=new Scanner(System.in);
-		int sixtheen=scanner24.nextInt();
+		String sixtheen=scanner24.nextLine();
 
 	stmt=conn.prepareStatement("insert into VEHICULES "
 					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,KILOMETRAGE,ETAT)"
@@ -232,7 +264,7 @@ insertions2();
 		stmt.setString(2,fourtheen);
 		stmt.setDate(3,date3);
 		stmt.setInt(4,fivetheen);
-		stmt.setInt(5,sixtheen);
+		stmt.setString(5,sixtheen);
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
 		
