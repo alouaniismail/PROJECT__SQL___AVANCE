@@ -111,15 +111,22 @@ public class interfaceJDBC{
 	  	Scanner scanner200=new Scanner(System.in);
 		Connection conn = null;
     Statement stmt = null;
-
-      if(scanner200.nextInt()==1){
-      conn = ods.getConnection();
+ conn = ods.getConnection();
       stmt = conn.createStatement();
+      if(scanner200.nextInt()==1){
       ResultSet rset = stmt.executeQuery("select * from VEHICULES");
 
       while (rset.next()) {
 	  System.out.println(rset.getString(1)+rset.getString(2)+rset.getString(3)+rset.getString(4)+rset.getString(5)+rset.getString(6));
 			   }
+      }
+
+      else if(scanner200.nextInt()==2){
+ ResultSet rset = stmt.executeQuery("select * from COMMUNES");
+ while(rset.next()){
+     System.out.println(rset.getString(1)+rset.getString(2));
+
+ }
       }
      }
 
