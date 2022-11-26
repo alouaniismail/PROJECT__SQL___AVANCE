@@ -6,14 +6,16 @@ import java.io.*;
 import java.text.*;
 
 public class interfaceJDBC{
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
-    Scanner scanner100=new Scanner(System.in);
-    while(scanner100.nextInt()==0){
-insertions1();
-insertions3();
-insertions2();
+    
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
+    {
+	Scanner scanner100=new Scanner(System.in);
+	while(scanner100.nextInt()==0){
+	    insertions1();
+	    insertions2();
+	    insertions3();
+	}
     }
-}
 
     public static void insertions1()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
@@ -113,16 +115,16 @@ insertions2();
       if(scanner200.nextInt()==1){
       conn = ods.getConnection();
       stmt = conn.createStatement();
-      ResultSet rset = stmt.executeQuery("select NUMERO_PARKING, NUMERO_IMMATRICULATION"+
+      /*ResultSet rset = stmt.executeQuery("select NUMERO_PARKING, NUMERO_IMMATRICULATION"+
 					 "FROM"+
 					 "STATIONNEMENTS natural join VEHICULES natural join POSITIONS natural join PARKINGS");
 
       while (rset.next()) {
 	System.out.println("La voiture dont l'identification est celle-ci: " + rset.getString(2) + " est dans le parking identifié par "
 			   + rset.getInt(1));
+			   }*/
       }
-      }
-
+      //les autres scanner300==2-5 pour les autres 'vues_consultation'.
      }
 
 	 
@@ -276,6 +278,8 @@ insertions2();
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
 		
+	}
+	}
+     }
 }
 
-	}}}
