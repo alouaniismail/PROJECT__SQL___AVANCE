@@ -29,9 +29,6 @@ insertions2();
 	System.out.println("Veuillez suivre les instructions suivantes:");
 	System.out.println("1.Communes");
 	System.out.println("2.Parkings");
-	System.out.println("3.Positions");
-	System.out.println("4.Stationnement");
-	System.out.println("5.Vehicules");
 	Scanner scanner =new Scanner(System.in);
 	Connection conn=null;
 	PreparedStatement stmt=null;
@@ -107,11 +104,8 @@ insertions2();
 	int choix=scanner13.nextInt();
 	if(choix==1){
 	    System.out.println("Veuillez suivre les instructions suivantes:");
-	System.out.println("1.Communes");
-	System.out.println("2.Parkings");
 	System.out.println("3.Positions");
 	System.out.println("4.Stationnement");
-	System.out.println("5.Vehicules");
 	Scanner scanner19 =new Scanner(System.in);
 	Connection conn=null;
 	PreparedStatement stmt=null;
@@ -153,6 +147,7 @@ insertions2();
 	   	Scanner scanner15=new Scanner(System.in);
 		String str1=scanner15.nextLine();
 		java.util.Date utilDate = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str1);
+		Systeme.out.println(str1);
 		java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
      
 		
