@@ -221,7 +221,7 @@ insertions2();
 
 		System.out.println("Entrez l'etat general de la voiture:");
 		Scanner scanner24=new Scanner(System.in);
-		String sixtheen=scanner24.nextLine();
+		int sixtheen=scanner24.nextInt();
 
 	stmt=conn.prepareStatement("insert into VEHICULES "
 					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,KILOMETRAGE,ETAT)"
