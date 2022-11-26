@@ -22,7 +22,7 @@ insertions2();
 	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
 	Scanner scanner1=new Scanner(System.in);
 	System.out.println("Veuillez choisir parmi le menu suivant");
-	System.out.println("1.Insertions(incluant des mises à jou)");
+	System.out.println("1.Insertions(incluant des mises à jour) --Communes/Parkings");
 	System.out.println("2.Consultations(incluant les vues de statistiques)");
 	int choix=scanner1.nextInt();
 	if(choix==1){
@@ -100,10 +100,9 @@ insertions2();
         ods.setUser("ialouani"); 
         ods.setPassword("ialouani");
 	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
-	  System.out.println("Entrez le numero de la place:");
 	  	Scanner scanner13=new Scanner(System.in);
 	System.out.println("Veuillez choisir parmi le menu suivant");
-	System.out.println("1.Insertions(incluant des mises à jou)");
+	System.out.println("1.Insertions(incluant des mises à jour) --Positions/Stationnements");
 	System.out.println("2.Consultations(incluant les vues de statistiques)");
 	int choix=scanner13.nextInt();
 	if(choix==1){
