@@ -142,7 +142,7 @@ insertions2();
 	else{
 	    conn=ods.getConnection();
 	    Statement stat = conn.createStatement();
-	    stat.execute("alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'");
+	    stat.execute("alter session set NLS_DATE_FORMAT='yyyyy-mm-dd hh24:mi:ss'");
 	    System.out.println("Entrez un id de stationnement");
 	Scanner scanner14=new Scanner(System.in);
 		int ten=scanner14.nextInt();
@@ -152,13 +152,13 @@ insertions2();
 		String str1=scanner15.nextLine();
 
 		Date date1 = new java.sql.Date(
-					       ((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str1)).getTime());
+					       ((java.util.Date) new SimpleDateFormat("yyyyy-mm-dd hh24:mi:ss").parse(str1)).getTime());
 		
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
 
 		String str2=scanner16.nextLine();
-	Date date2 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str2)).getTime());
+	Date date2 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("yyyyy-mm-dd hh24:mi:ss").parse(str2)).getTime());
 	
 			System.out.println("Entrez le numéro de la place");
 		Scanner scanner17=new Scanner(System.in);
@@ -214,7 +214,7 @@ insertions2();
 		Scanner scanner22=new Scanner(System.in);
 
 		String str3=scanner22.nextLine();
-	Date date3 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str3)).getTime());
+	Date date3 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("yyyyy-mm-dd hh24:mi:ss").parse(str3)).getTime());
 
 	System.out.println("Entrez le kilometrage jusqu'a maintenant:");
 		Scanner scanner23=new Scanner(System.in);
