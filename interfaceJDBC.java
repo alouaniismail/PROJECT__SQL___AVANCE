@@ -182,6 +182,59 @@ insertions2();
 	}
 	}
      }
+
+     public static void insertions3()
+	 throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
+	 	OracleDataSource ods=new OracleDataSource();
+        ods.setUser("ialouani"); 
+        ods.setPassword("ialouani");
+	ods.setURL("jdbc:oracle:thin:@localhost:1521/oracle");
+	  	Scanner scanner19=new Scanner(System.in);
+	System.out.println("Veuillez choisir parmi le menu suivant");
+	System.out.println("1.Insertions(incluant des mises à jour) --Vehicules");
+	System.out.println("2.Consultations(incluant les vues de statistiques)");
+	int choix=scanner19.nextInt();
+	if(choix==1){
+	    System.out.println("Veuillez suivre les instructions suivantes:");
+	    System.out.println("5.Vehicules");
+	Scanner scanner19 =new Scanner(System.in);
+	Connection conn=null;
+	PreparedStatement stmt=null;
+	if(scanner19.nextInt()==5){
+	    System.out.println("Entrez le nume d'immatriculation: ");
+	    Scanner scanner20=new Scanner(System.in);
+	    String thirteen=scanner20.nextLine();
+
+	    System.out.println("Entrez la marque ");
+	    Scanner scanner21=new Scanner(System.in);
+	    String fourtheen=scanner21.nextLine();
+
+	    System.out.println("Entrez la date de mise en circulation");
+		Scanner scanner22=new Scanner(System.in);
+
+		String str3=scanner22.nextLine();
+	Date date3 = new java.sql.Date(((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str3)).getTime());
+
+	System.out.println("Entrez le kilometrage jusqu'a maintenant:");
+		Scanner scanner23=new Scanner(System.in);
+		int fivetheen=scanner23.nextInt();
+
+		System.out.println("Entrez l'etat general de la voiture:");
+		Scanner scanner24=new Scanner(System.in);
+		String sixtheen=scanner24.nextLine();
+
+	stmt=conn.prepareStatement("insert into VEHICULES "
+					   +" (NUMERO_IMMATRICULATION, MARQUE, DATE_DE_MISE_EN_CIRCULATION,KILOMETRAGE,ETAT)"
+                                              + " values (?,?,?,?,?)");
+	    
+		stmt.setInt(1,thirteen);
+		stmt.setDate(2,fourtheen);
+		stmt.setDate(3,date3);
+		stmt.setInt(4,fivetheen);
+		stmt.setInt(5,sixtheen);
+		stmt.executeUpdate();
+		System.out.println("Opération faite avec succès !");
+		
 }
 
-
+	}}}
