@@ -202,9 +202,6 @@ insertions2();
 	Connection conn=null;
 	PreparedStatement stmt=null;
 	if(scanner101.nextInt()==5){
-	     conn=ods.getConnection();
-	    Statement stat = conn.createStatement();
-	    stat.execute("alter session set NLS_DATE_FORMAT='yyyyy-mm-dd hh24:MI:SS'");
 	    System.out.println("Entrez le nume d'immatriculation: ");
 	    Scanner scanner20=new Scanner(System.in);
 	    String thirteen=scanner20.nextLine();
