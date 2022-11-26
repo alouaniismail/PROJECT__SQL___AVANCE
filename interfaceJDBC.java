@@ -100,10 +100,8 @@ public class interfaceJDBC{
      public static void consultations()
  	throws SQLException, ClassNotFoundException, java.io.IOException{
  System.out.println("Choisissez quelle vue consulter:");
-	    System.out.println("1.Liste des voitures par parking, la liste des parkings par commune");
-	    System.out.println("2.Liste des parkings qui sont saturés à un jour donnée");
-	    System.out.println("3.Liste des places disponibles, par parking, à un moment donné");
-	    System.out.println("4.liste de voitures qui se sont garées dans deux parkings différents au cours d'une journée");
+	    System.out.println("1.Liste des véhicules dans toutes les communes disponibles");
+	    System.out.println("2.Liste des communes dans lesquelles l'étude de parkings se fera");
 	    	OracleDataSource ods=new OracleDataSource();
         ods.setUser("ialouani"); 
         ods.setPassword("ialouani");
@@ -121,7 +119,7 @@ public class interfaceJDBC{
 			   }
       }
 
-      else if(scanner200.nextInt()==2){
+      else{
  ResultSet rset = stmt.executeQuery("select * from COMMUNES");
  while(rset.next()){
      System.out.println(rset.getString(1)+rset.getString(2));
