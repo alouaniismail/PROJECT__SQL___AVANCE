@@ -7,3 +7,6 @@ BEGIN
   END IF;
 END
 /
+--a revoir aussi ultèrieurement, l'important, c'est que notre procédure
+--reliée implicitement au trigger (inclut les fonctionnalitées du trigger)
+--marche avec @execute_procedures.sql.
