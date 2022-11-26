@@ -139,6 +139,11 @@ insertions2();
 		System.out.println("Opération faite avec succès !");
 	}
 	else{
+
+	    conn=ods.getConnection();
+	    Statement stat = conn.createStatement();
+
+stat.execute("alter session set NLS_DATE_FORMAT='YYYY-DD-MM'");
 	    System.out.println("Entrez un id de stationnement");
 	Scanner scanner14=new Scanner(System.in);
 		int ten=scanner14.nextInt();
@@ -164,7 +169,7 @@ insertions2();
 		int tweleve=scanner18.nextInt();
 
 		
-		conn=ods.getConnection();
+		
 		stmt=conn.prepareStatement("insert into STATIONNEMENTS "
 					   +" (ID_STATIONNEMENT, DATE_STATIONNEMENT, HORAIRE_SORTIE,NUMERO_PLACE,NUMERO_IMMATRICULATION)"
                                               + " values (?,?,?,?,?)");
