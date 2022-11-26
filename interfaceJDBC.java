@@ -49,6 +49,7 @@ insertions2();
 		stmt.setInt(1,one);
 		stmt.setString(2,two);
 		stmt.executeUpdate();
+		System.out.println("Opération faite avec succès !");
 	    }
 
 	else{
@@ -88,6 +89,7 @@ insertions2();
 		stmt.setInt(5,five);
 		stmt.setInt(6,six);
 		stmt.executeUpdate();
+		System.out.println("Opération faite avec succès !");
 	}
 	}
     }
@@ -141,6 +143,7 @@ insertions2();
 		stmt.setString(3,nine2);
 		stmt.setInt(4,nine);
 		stmt.executeUpdate();
+		System.out.println("Opération faite avec succès !");
 	}
 	else{
 	    System.out.println("Entrez un id de stationnement");
@@ -179,6 +182,7 @@ insertions2();
 		stmt.setInt(4,eleven);
 		stmt.setInt(5,tweleve);
 		stmt.executeUpdate();
+		System.out.println("Opération faite avec succès !");
 	}
 	}
      }
