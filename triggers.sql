@@ -1,4 +1,4 @@
-CREATE TRIGGER IF NOT EXISTS stationnements_sortie_trig
+CREATE OR REPLACE TRIGGER stationnements_sortie_trig
   BEFORE UPDATE ON STATIONNEMENTS 
   FOR EACH ROW
 BEGIN
