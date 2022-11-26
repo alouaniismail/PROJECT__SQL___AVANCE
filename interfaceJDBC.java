@@ -10,6 +10,7 @@ public class interfaceJDBC{
     Scanner scanner100=new Scanner(System.in);
     while(scanner100.nextInt()==0){
 insertions1();
+insertions3();
 insertions2();
     }
 }
