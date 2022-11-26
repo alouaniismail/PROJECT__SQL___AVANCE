@@ -151,6 +151,10 @@ stat.execute("alter session set NLS_DATE_FORMAT='YYYY-DD-MM'");
 	   System.out.println("Entrez la date de stationnement");
 	   	Scanner scanner15=new Scanner(System.in);
 		String str1=scanner15.nextLine();
+
+DateFormat format = new SimpleDateFormat('YYYY-MM-DD HH24:MI:SS');
+Date date1=format.format(str1);
+		
 	        Date date1 = new java.sql.Date(
                      ((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str1)).getTime());
 		
