@@ -140,6 +140,7 @@ insertions2();
 	}
 	else{
 	    conn=ods.getConnection();
+	    Statement stat = conn.createStatement();
 	    stat.execute("alter session set NLS_DATE_FORMAT='YYYY-DD-MM'");
 	    System.out.println("Entrez un id de stationnement");
 	Scanner scanner14=new Scanner(System.in);
