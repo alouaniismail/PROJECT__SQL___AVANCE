@@ -115,16 +115,12 @@ public class interfaceJDBC{
       if(scanner200.nextInt()==1){
       conn = ods.getConnection();
       stmt = conn.createStatement();
-      /*ResultSet rset = stmt.executeQuery("select NUMERO_PARKING, NUMERO_IMMATRICULATION"+
-					 "FROM"+
-					 "STATIONNEMENTS natural join VEHICULES natural join POSITIONS natural join PARKINGS");
+      ResultSet rset = stmt.executeQuery("select * from VEHICULES");
 
       while (rset.next()) {
-	System.out.println("La voiture dont l'identification est celle-ci: " + rset.getString(2) + " est dans le parking identifié par "
-			   + rset.getInt(1));
-			   }*/
+	  System.out.println(rset.getString(1)+rset.getString(2)+rset.getString(3)+rset.getString(4)+rset.getString(5)+rset.getString(6));
+			   }
       }
-      //les autres scanner300==2-5 pour les autres 'vues_consultation'.
      }
 
 	 
