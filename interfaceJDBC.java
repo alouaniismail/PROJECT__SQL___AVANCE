@@ -146,15 +146,14 @@ insertions2();
 	   System.out.println("Entrez la date de stationnement");
 	   	Scanner scanner15=new Scanner(System.in);
 		String str1=scanner15.nextLine();
-		java.util.Date utilDate = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str1);
-		java.sql.Date sqlDate = java.sql.Date.valueOf(utilDate.getTime());
-     
+	        Date date1 = new java.sql.Date(
+                     ((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str1)).getTime());
 		
 		System.out.println("Entrez l'horaire de sortie");
 		Scanner scanner16=new Scanner(System.in);
 		String str2=scanner16.nextLine();
-		java.util.Date utilDate2 = new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str2);
-		java.sql.Date sqlDate2 = java.sql.Date.valueOf(utilDate2.getTime());
+	         Date date1 = new java.sql.Date(
+                     ((java.util.Date) new SimpleDateFormat("YYYY-MM-DD HH24:MI:SS").parse(str2)).getTime());
      
 
 			System.out.println("Entrez le numéro de la place");
