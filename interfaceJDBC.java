@@ -271,7 +271,10 @@ public class interfaceJDBC{
 		stmt.setInt(5,tweleve);
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
-	}
+	}}
+	else{
+	    
+	    consultations();
 	}
      }
 
@@ -332,9 +335,11 @@ public class interfaceJDBC{
 		stmt.setString(6,sixtheen);
 		stmt.executeUpdate();
 		System.out.println("Opération faite avec succès !");
-		
 	}
+	}
+	else{
+	    
+	    consultations();
 	}
      }
 }
-
