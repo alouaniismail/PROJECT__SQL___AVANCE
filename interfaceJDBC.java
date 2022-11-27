@@ -125,7 +125,7 @@ public class interfaceJDBC{
      System.out.println(rset.getString(1)+rset.getString(2));
 
  }
- consultations2();
+ insertions1();
       }
      }
 
@@ -157,7 +157,7 @@ public class interfaceJDBC{
      System.out.println(rset.getString(1)+rset.getString(2)+rset.getString(3));
 
  }
- consultations3();
+ insertions2();
       }
  }
 
@@ -339,7 +339,7 @@ public class interfaceJDBC{
 	}
 	else{
 	    
-	    consultations3();
+	    insertions3();
 	}
      }
 }
