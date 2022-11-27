@@ -6,18 +6,22 @@ import java.io.*;
 import java.text.*;
 
 import javax.swing.*;
-//import java.awt.*;
+import java.awt.*;
 
 public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
     {
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run(){
+				//On crée une nouvelle instance de notre JWindow
+				JWindow window = new JWindow();
+				window.setSize(300, 200);//On lui donne une taille pour qu'on puisse la voir
+				window.setVisible(true);//On la rend visible
+			}
+		});
 
-	JFrame frame = new JFrame("Hello World");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(250, 250);
-        frame.setVisible(true);
-	
+		
 	Scanner scanner100=new Scanner(System.in);
 	while(scanner100.nextInt()==0){
 	    insertions1();
