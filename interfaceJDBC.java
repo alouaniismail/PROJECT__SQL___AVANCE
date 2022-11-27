@@ -16,12 +16,6 @@ public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
     {
-PrintWriter out =  new PrintWriter (new FileWriter ("fichier.txt")) ;
-for(int i=0; i<TabDataValue.length;i++)
-{
-    out.print(TabDataValue[i]);
-}
-out.close();
 
 	Scanner scanner100=new Scanner(System.in);
 	while(scanner100.nextInt()==0){
