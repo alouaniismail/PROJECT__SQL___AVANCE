@@ -11,15 +11,7 @@ import java.awt.*;
 public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
-    {
-		SwingUtilities.invokeLater(new Runnable(){
-			public void run(){
-				//On crée une nouvelle instance de notre JWindow
-				JWindow window = new JWindow();
-				window.setSize(300, 200);//On lui donne une taille pour qu'on puisse la voir
-				window.setVisible(true);//On la rend visible
-			}
-		});
+   {
 
 		
 	Scanner scanner100=new Scanner(System.in);
