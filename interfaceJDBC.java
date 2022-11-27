@@ -5,6 +5,9 @@ import java.lang.*;
 import java.io.*;
 import java.text.*;
 
+import java.swing.*;
+import java.awt.*;
+
 public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
