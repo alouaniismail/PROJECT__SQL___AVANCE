@@ -130,7 +130,7 @@ public class interfaceJDBC{
      }
 
  public static void consultations2()
-     throws SQLException, ClassNotFoundException, java.io.IOException,, java.text.ParseException{
+     throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
  System.out.println("Choisissez quelle vue consulter:");
 	    System.out.println("1.Liste des parkings réparties dans toutes les communes:");
 	    System.out.println("2.Liste des places reliees à un numéro de parking précis:");
