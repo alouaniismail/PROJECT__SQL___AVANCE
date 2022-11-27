@@ -9,6 +9,12 @@ public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
     {
+
+	JFrame frame = new JFrame("Hello World");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(250, 250);
+        frame.setVisible(true);
+	
 	Scanner scanner100=new Scanner(System.in);
 	while(scanner100.nextInt()==0){
 	    insertions1();
