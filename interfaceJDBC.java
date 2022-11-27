@@ -130,7 +130,7 @@ public class interfaceJDBC{
      }
 
  public static void consultations2()
- 	throws SQLException, ClassNotFoundException, java.io.IOException{
+     throws SQLException, ClassNotFoundException, java.io.IOException,, java.text.ParseException{
  System.out.println("Choisissez quelle vue consulter:");
 	    System.out.println("1.Liste des parkings réparties dans toutes les communes:");
 	    System.out.println("2.Liste des places reliees à un numéro de parking précis:");
@@ -162,7 +162,7 @@ public class interfaceJDBC{
  }
 
      public static void consultations3()
- 	throws SQLException, ClassNotFoundException, java.io.IOException{
+	 throws SQLException, ClassNotFoundException, java.io.IOException{
  System.out.println("Choisissez quelle vue consulter:");
 	    System.out.println("1.Liste des stationnements courants à cet instant reliant une vraie numero de place à une place d'immatriculation:");
 	    	OracleDataSource ods=new OracleDataSource();
@@ -339,7 +339,7 @@ public class interfaceJDBC{
 	}
 	else{
 	    
-	    insertions3();
+	    consultations3();
 	}
      }
 }
