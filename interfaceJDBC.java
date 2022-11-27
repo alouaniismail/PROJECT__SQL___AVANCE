@@ -7,21 +7,35 @@ import java.text.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+
+
+
 
 public class interfaceJDBC{
     
     public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
     {
-		SwingUtilities.invokeLater(new Runnable(){
-			public void run(){
-				//On crée une nouvelle instance de notre JWindow
-				JWindow window = new JWindow();
-				window.setSize(300, 200);//On lui donne une taille pour qu'on puisse la voir
-				window.setVisible(true);//On la rend visible
-			}
-		});
 
-		
+	public class motus extends JFrame
+{
+JLabel monText = new JLabel("Bonjour");
+
+
+JFrame fen= new JFrame();
+fen.setSize (500, 500);
+fen.setTitle ("Jeu : Motus");
+fen.setVisible(true);
+fen.setBackground (Color.yellow);
+}
+
+	JFrame fen= new JFrame();
+fen.setSize (500, 500);
+fen.setTitle ("Jeu : Motus");
+fen.setVisible(true);
+fen.setBackground (Color.yellow);
+
+
 	Scanner scanner100=new Scanner(System.in);
 	while(scanner100.nextInt()==0){
 	    insertions1();
