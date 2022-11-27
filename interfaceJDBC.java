@@ -14,25 +14,8 @@ import java.awt.event.*;
 
 public class interfaceJDBC{
     
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
-
-	public class motus extends JFrame
-{
-JLabel monText = new JLabel("Bonjour");
-
-
-JFrame fen= new JFrame();
-fen.setSize (500, 500);
-fen.setTitle ("Jeu : Motus");
-fen.setVisible(true);
-fen.setBackground (Color.yellow);
-}
-
-	JFrame fen= new JFrame();
-fen.setSize (500, 500);
-fen.setTitle ("Jeu : Motus");
-fen.setVisible(true);
-fen.setBackground (Color.yellow);
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
+    {
 
 
 	Scanner scanner100=new Scanner(System.in);
