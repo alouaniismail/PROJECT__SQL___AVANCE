@@ -7,3 +7,7 @@ mld:	mld.txt
 	cat $<
 interface_compilation: interfaceJDBC.java
 	javac $^
+graphisme_jdbc: Main2.java
+	javac $^ && java Main2
+relations_totalitee_columns: Main.java
+	javac $^ && java Main
