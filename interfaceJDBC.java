@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 import java.text.*;
 
-import java.swing.*;
+import javax.swing.*;
 import java.awt.*;
 
 public class interfaceJDBC{
