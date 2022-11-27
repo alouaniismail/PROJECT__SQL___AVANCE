@@ -14,8 +14,7 @@ import java.awt.event.*;
 
 public class interfaceJDBC{
     
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException
-    {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, java.io.IOException, java.text.ParseException{
 
 	public class motus extends JFrame
 {
